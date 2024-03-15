@@ -335,3 +335,57 @@ background-position: 0% 50%;
   border: 1px solid #040316  ;
   transition: 1s ease-in-out;
 }
+.das{
+  fill: #040316;
+}
+.telefoni{
+background-color: #443DFF;
+height: 300px;
+border-radius:50% 50% 0% 50%;
+}
+.inputGroup {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 1em 0 1em 0;
+  max-width: 210px;
+  position: relative;
+}
+
+.inputGroup input {
+  font-size: 100%;
+  padding: 0.8em;
+  outline: none;
+  border: 2px solid #443DFF;
+  background-color: transparent;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.inputGroup label {
+  font-size: 100%;
+  position: absolute;
+  left: 0;
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: #443DFF;
+}
+
+.inputGroup :is(input:focus, input:valid)~label {
+  transform: translateY(-50%) scale(.9);
+  margin: 0em;
+  margin-left: 1.3em;
+  padding: 0.4em;
+  background-color: #FBFBFE;
+}
+
+.inputGroup :is(input:focus, input:valid) {
+  border-color: #443DFF;
+}
+.alert{
+
+  height: 40px;
+  background-color: #443DFF;
+  color: #FBFBFE;
+  border-radius: 10px;
+}

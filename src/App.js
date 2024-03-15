@@ -6,6 +6,7 @@ import {createTheme, ThemeProvider } from '@mui/material';
 import Home from './Home';
 import About from './About';
 import VehicleModels from './VehicleModels';
+import Contact from './Contact';
 
 const theme = createTheme({
   palette:{
@@ -50,6 +51,8 @@ function App() {
           <About/>
           <div className="empty"></div>
           <VehicleModels/>
+          <div className="empty"></div>
+          <Contact/>
         </header>
       </div>
     </ThemeProvider>

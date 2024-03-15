@@ -56,7 +56,7 @@ const Navbar = () => {
             <div id='sho' className="flex items-center" >
                 <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#about">About</a></li>
                 <li  style={{color:'#040316'}} className='px-4 font-semibold'><a href="#vehicle">Vehicle Models</a></li>
-                <li style={{color:'#040316'}} className='px-4 font-semibold'>Contact</li>
+                <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#contact">Contact</a></li>
             </div>
             <div className="flex items-center">
             <Tooltip title="Home">
@@ -67,6 +67,11 @@ const Navbar = () => {
             <Tooltip title="Log In">
                 <IconButton style={{width:'fit-content'}}>
                     <AccountBoxIcon style={{width:30}} color='primary' />
+                </IconButton>
+            </Tooltip>
+            <Tooltip title="Inbox">
+                <IconButton style={{width:'fit-content'}}>
+                    <InboxIcon style={{width:30}} color='primary' />
                 </IconButton>
             </Tooltip>
             <Tooltip title="Menu" onClick={toggleDrawer('right', true)}>
