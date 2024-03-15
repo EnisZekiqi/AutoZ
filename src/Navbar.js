@@ -54,8 +54,8 @@ const Navbar = () => {
             <h1 style={{color:'#040316'}} className="text-3xl font-bold ">AutoZ</h1>
             </div>
             <div id='sho' className="flex items-center" >
-                <li style={{color:'#040316'}} className='px-4 font-semibold'>About</li>
-                <li  style={{color:'#040316'}} className='px-4 font-semibold'>Vehicle Models</li>
+                <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#about">About</a></li>
+                <li  style={{color:'#040316'}} className='px-4 font-semibold'><a href="#vehicle">Vehicle Models</a></li>
                 <li style={{color:'#040316'}} className='px-4 font-semibold'>Contact</li>
             </div>
             <div className="flex items-center">
@@ -88,13 +88,13 @@ const Navbar = () => {
                     damping: 20
                   }}
                 >
-                <ListItem button>
+                <ListItem button color='primary'>
                 <motion.li 
                 variants={varianti}
                 initial="initial"
                 whileInView="animate" 
                 viewport={{ once: true }}
-                style={{color:'#040316'}} className='px-4 font-semibold'>Buy a Car</motion.li>
+                style={{color:'#040316'}} id='li' className='px-4 font-semibold'>Buy a Car</motion.li>
                 </ListItem>
                 </motion.div>
             <motion.div

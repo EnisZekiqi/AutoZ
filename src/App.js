@@ -4,6 +4,8 @@ import {useState} from 'react'
 import Navbar from './Navbar';
 import {createTheme, ThemeProvider } from '@mui/material';
 import Home from './Home';
+import About from './About';
+import VehicleModels from './VehicleModels';
 
 const theme = createTheme({
   palette:{
@@ -45,6 +47,9 @@ function App() {
           <div className="empty"></div>
           <Home/>
           <div className="empty"></div>
+          <About/>
+          <div className="empty"></div>
+          <VehicleModels/>
         </header>
       </div>
     </ThemeProvider>
