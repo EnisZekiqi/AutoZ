@@ -1,38 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", sans-serif;
+}
+
 .App {
-  text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.empty{
+  height: 200px;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color:	 #FBFBFE;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  width: 100px;
+  height: 30px;
+  color: wheat;
+  background-color: black;
+}
+.Navbar{
+display: flex;
+color: #040316;
+}
+li{
+  list-style-type: none;
+}
+.Intro{
+  color: #040316;
+  font-size: 50px;
+  font-weight: 800;
+}
+.bold{
+  font-weight: 800;
+  color:#2F27CE ;
+}
+.boldi{
+  font-style: italic;
+  color: #FBFBFE;
+  -webkit-text-stroke-color:#040316;
+  -webkit-text-stroke-width:1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.listItemText {
+  color: #040316;
+  font-weight:bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.listItemTextNormal {
+  color: blue;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+.generalicon{
+  width: 40px;
+}
+@media(max-width:768px){
+  #sho{
+      display: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+.smallsho{
+  display: none;
+}
+@media(max-width:768px){
+  .smallsho{
+      display:block;
   }
+}
+.engine{
+  background-color: #DDDBFF;
+  width: 75px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: -10px;
+}
+.electric{
+  background-color: #DDDBFF;
+  width: 75px;
+  height: 30px;
+  border-radius: 10px;
+}
+.big{
+  background-color: #2F27CE;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+.small{
+  background-color: #DDDBFF;
+  border-radius: 10px;
+  width: 110px;
+  height: 110px;
+}
+.merc{
+  position: absolute;
+  margin-left: 25px;
+}
+.bmw{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.icon-container{
+  
+}
+.thin{
+  background-color: #DDDBFF;
+  width: 20px;
+  margin-top: 20px;
+  height: 140px;
+  border-radius: 10px;
+  border:1px solid #040316;
+}
+.thinjr{
+  background-color: #DDDBFF;
+  width: 20px;
+  margin-top: 60px;
+  height: 40px;
+  border-radius: 10px;
+}
+.box{
+  color: #DDDBFF;
+  border-radius:10px ;
+  width: 100px;
+  height: 100px;
+  background-color: #040316;
+  margin-top: -55px;
+  margin-left: 40px;
 }
