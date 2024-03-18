@@ -3,7 +3,7 @@ const About = () => {
         <div id="about" className="about">
             <h1  style={{fontWeight:800,fontSize:40,color:'#040316'}} className="text-center">About Us </h1>
             <div className="flex flex-col md:flex-row items-center md:justify-evenly mt-8">
-                <div className="card1 flex flex-col items-center">
+                <div className="card1 flex flex-col items-center mt-6">
                <svg viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                <g id="SVGRepo_bgCarrier" stroke-width="0">
                </g>

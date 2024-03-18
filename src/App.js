@@ -31,7 +31,11 @@ const theme = createTheme({
 });
 
 function App() {
+  const [isContactSubmitted, setIsContactSubmitted] = useState(false);
 
+  const handleContactSubmit = () => {
+    setIsContactSubmitted(true);
+  };
   const [isClicked,setIsClicked] = useState(null);
 
   const handleButton = (contentId) =>{
@@ -44,7 +48,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <header className="App-header">
-          <Navbar/>
+        <Navbar isContactSubmitted={isContactSubmitted} />
           <div className="empty"></div>
           <Home/>
           <div className="empty"></div>
@@ -52,7 +56,7 @@ function App() {
           <div className="empty"></div>
           <VehicleModels/>
           <div className="empty"></div>
-          <Contact/>
+          <Contact onContactSubmit={handleContactSubmit} />
         </header>
       </div>
     </ThemeProvider>

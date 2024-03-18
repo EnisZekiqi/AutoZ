@@ -17,8 +17,14 @@ import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import { motion } from 'framer-motion';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Success from './Success';
 
-const Navbar = () => {
+
+const Navbar = ({ isContactSubmitted }) => {
+ 
+ 
+
     const [state, setState] = useState({
         right: false,
       });
@@ -32,20 +38,41 @@ const Navbar = () => {
 
       const varianti={
         initial :{
-            y:-50,
+            y:-60,
             opacity:0,
         },
         animate:{
             y:0,
             opacity:1,
             tranisition:{
-                duration:1,
+                duration:2,
                 delayChildren: 0.3,
                 staggerChildren:1
             }
         }
     
     }
+
+    const [hide,setHide]=useState(null)
+
+    const[isClicked,setIsClicked]=useState(null)
+
+      const [showInbox,setShowInbox] =useState(false)
+      
+      const openInbox = (contentId)=>{
+        setShowInbox(true)
+        setIsClicked(isClicked === contentId ? null : contentId)
+      }
+
+      const closeInbox  =(contentId) =>{
+        setShowInbox(false)
+        setIsClicked(isClicked === contentId ? null : contentId)
+      } 
+
+      const clearInbox = () => {
+        setHide(false)
+      };
+      
 
     return ( 
         <div className="Navbar pt-4 flex justify-between">
@@ -60,23 +87,50 @@ const Navbar = () => {
             </div>
             <div className="flex items-center">
             <Tooltip title="Home">
-                <IconButton style={{width:'fit-content'}}>
-                    <HomeIcon style={{width:30}} color='primary' />
-                </IconButton>
+               <a href="/"> <IconButton  className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} style={{width:'fit-content'}}>
+                    <HomeIcon style={{width:30,color:'#040316'}} />
+                </IconButton></a>
             </Tooltip>
             <Tooltip title="Log In">
-                <IconButton style={{width:'fit-content'}}>
-                    <AccountBoxIcon style={{width:30}} color='primary' />
+                <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} style={{width:'fit-content'}}>
+                    <AccountBoxIcon style={{width:30,color:'#040316'}} />
                 </IconButton>
             </Tooltip>
-            <Tooltip title="Inbox">
-                <IconButton style={{width:'fit-content'}}>
-                    <InboxIcon style={{width:30}} color='primary' />
+                <div    className={`inbox-container  flex flex-col items-center ${isClicked === 'first' ? 'clicked3' : ''}${isClicked === 'second' ? 'clicked4' : ''}`}>
+                <Tooltip title="Inbox">
+                <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} id='first' onClick={()=>openInbox ('first')} style={{width:'fit-content',marginBottom:0}}>
+                <InboxIcon style={{width:30,color:'#040316'}}/>
+                {isContactSubmitted && 
+                  <div className='dot'></div>
+                    }
                 </IconButton>
             </Tooltip>
+                {showInbox && (
+                <div 
+                onClick={()=>closeInbox('second')}
+                className={`flex flex-col items-start  flex flex-col items-center ${isClicked === 'first' ? 'clicked5' : ''}${isClicked === 'second' ? 'clicked6' : ''}`} >
+                    <motion.div
+                    variants={varianti}
+                    initial="initial"
+                    animate="animate"
+                    exit="initial"
+                    className='inboxshowed flex flex-col justify-center items-center gap-14'>
+                       <h2 style={{color:'#040316',fontSize:18}} className='font-semibold'>Inbox</h2>
+                        <div className={`hide ${isClicked === 'second' ? 'clicked' : ''}`}>
+                        {isContactSubmitted && <Success />}
+                        </div>
+                          <div className="flex gap-2">
+                          <button id='second' onClick={()=>closeInbox('second')} className='bb'>Close</button>
+                        <button className='bb' onClick={()=>closeInbox('second')}>Clear</button>
+                          </div>
+                    </motion.div>
+                </div>
+            )}
+                </div>
+
             <Tooltip title="Menu" onClick={toggleDrawer('right', true)}>
-                <IconButton style={{width:'fit-content'}}>
-                    <MenuIcon style={{width:30}} color='primary' />
+                <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} style={{width:'fit-content'}}>
+                    <MenuIcon style={{width:30,color:'#040316'}} />
                 </IconButton>
             </Tooltip>
             <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
@@ -152,7 +206,7 @@ const Navbar = () => {
             initial="initial"
             whileInView="animate" 
             viewport={{ once: true }}
-            style={{color:'#040316'}} className='px-4 font-semibold'>About</motion.li>
+            style={{color:'#040316'}} className='px-4 font-semibold'><a href="#about">About</a></motion.li>
             </ListItem>
               </motion.div>
                <motion.div
@@ -169,7 +223,7 @@ const Navbar = () => {
             initial="initial"
             whileInView="animate" 
             viewport={{ once: true }}
-            style={{color:'#040316'}} className='px-4 font-semibold'>Vehicle Models</motion.li>
+            style={{color:'#040316'}} className='px-4 font-semibold'><a href="#vehicle">Vehicle Models</a></motion.li>
             </ListItem>
                </motion.div>
                <motion.div
@@ -186,14 +240,13 @@ const Navbar = () => {
             initial="initial"
             whileInView="animate" 
             viewport={{ once: true }}
-            style={{color:'#040316'}} className='px-4 font-semibold'>Contact</motion.li>
+            style={{color:'#040316'}} className='px-4 font-semibold'><a href="#contact">Contact</a></motion.li>
             </ListItem>
                </motion.div>
             </div>
           </List>
         </div>
       </Drawer>
-
             </div>
         </div>
      );

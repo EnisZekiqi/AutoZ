@@ -4,13 +4,15 @@ import { motion } from 'framer-motion';
 import Alert from '@mui/material/Alert';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const Contac = () => {
+
+const Contac = ({ onContactSubmit }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
     const [showError, setShowError] = useState(false);
     const [success, setSuccess] = useState(false);
   
+
     const handleNameChange = (e) => {
         setName(e.target.value);
     };
@@ -24,19 +26,20 @@ const Contac = () => {
     };
   
     const handleSubmit = () => {
-        if (name.trim() === '' || email.trim() === '' || comment.trim() === '') {
-        setShowError(true);
-        setSuccess(false);
+        if (name && email && comment) {
+            // Submit form
+            onContactSubmit();
+            setSuccess(true)
+            setName('');
+            setEmail('');
+            setComment('');
+            setTimeout(() => {
+              setSuccess(false);
+            }, 4000);
       } else {
         // Perform submission logic or API call
-        setShowError(false);
-        setSuccess(true);
-        setName(''); // Clear input after submission, if needed
-        setEmail('');
-        setComment('');
-        setTimeout(() => {
-            setSuccess(false);
-        }, 4000);
+        setShowError(true);
+        setSuccess(false);
       }
       
     };
@@ -46,11 +49,11 @@ const Contac = () => {
     return ( 
         <div id="contact" className="contact">
             <h1  style={{fontWeight:800,fontSize:40,color:'#040316'}} className="text-center">Contact </h1>
-            <div className="flex justify-evenly items-center  mt-12">
+            <div className="flex flex flex-col md:flex-row justify-evenly items-center  mt-12">
                 <div className="telefoni">
                     <img style={{width:'300px'}} src={Contact} alt="" />
                 </div>
-                <div className="forum flex-flex-col">
+                <div className="forum flex-flex-col mt-8 md:mt-1">
                 <div class="inputGroup">
                     <input 
                      value={name}
