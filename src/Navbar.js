@@ -18,10 +18,10 @@ import { useState } from 'react';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import { motion } from 'framer-motion';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Success from './Success';
+import Success from './Messages/Success';
+import WishList from './Messages/WishList';
 
-
-const Navbar = ({ isContactSubmitted }) => {
+const Navbar = ({ isContactSubmitted}) => {
  
  
 
@@ -101,7 +101,9 @@ const Navbar = ({ isContactSubmitted }) => {
                 <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} id='first' onClick={()=>openInbox ('first')} style={{width:'fit-content',marginBottom:0}}>
                 <InboxIcon style={{width:30,color:'#040316'}}/>
                 {isContactSubmitted && 
-                  <div className='dot'></div>
+                  <div className='dot'>
+                      <div className="dot1 animate-ping"></div>
+                  </div>
                     }
                 </IconButton>
             </Tooltip>

@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import SUVsPage from './SUVsPage';
+import Hatchbacks from './Hatchbacks';
+import Saloons from './Saloons'
+import { useState } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,10 +18,19 @@ const router = createBrowserRouter([
   }, 
   {
     path: "suvs",
-    element: <SUVsPage/> ,
+    element: <SUVsPage /> ,
+  },
+  {
+    path: "hatchbacks",
+    element: <Hatchbacks /> ,
+  },
+  {
+    path: "saloons",
+    element: <Saloons /> ,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

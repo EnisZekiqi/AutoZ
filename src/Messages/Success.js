@@ -12,7 +12,7 @@ const Success = () => {
         className="alert items-center">
             <div className="flex ">
                 <CheckCircleIcon className='mt-2'/>
-                <p className='items-center mt-2 '>The Message was sent successfuly</p>
+                <p className='items-center mt-2 mr-2'>The Message was sent successfuly</p>
             </div>
         </motion.div>
      );

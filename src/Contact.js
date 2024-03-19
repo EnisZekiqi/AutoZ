@@ -86,7 +86,7 @@ const Contac = ({ onContactSubmit }) => {
                     className="alert">
                         <div className="flex mt-4">
                             <CheckCircleIcon className='mt-2'/>
-                            <p className='items-center mt-2'>This Message was sent successfuly</p>
+                            <p className='items-center mt-2 mr-2'>This Message was sent successfuly</p>
                         </div>
                     </motion.div>
         }

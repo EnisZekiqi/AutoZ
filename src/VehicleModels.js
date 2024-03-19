@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SUVsPage from './SUVsPage';
+import { motion } from "framer-motion";
+
 
 const VehicleModels = () => {
     return ( 
@@ -8,24 +10,38 @@ const VehicleModels = () => {
             <h1  style={{fontWeight:800,fontSize:40,color:'#040316'}} className="text-center">Vehicle Models </h1>
             <h1  style={{fontWeight:700,fontSize:25,color:'#040316'}} className="text-start ml-8 mt-4">Explore your car type </h1>
             <div className="vehicle2 flex overflow-x-auto overflow-y-hidden justify-start md:justify-evenly mt-8">
-            <a href="/suvs" className="suvs items-center">
+            <motion.a
+             whileHover={{ scale: 1.1 }}
+            href="/suvs" className="suvs items-center">
             <p style={{fontSize:14}} className="suvx text-center mt-24">SUVs</p>
-            </a>
-                <div className="hatchback items-center ">
+            </motion.a>
+                <motion.a
+                 whileHover={{ scale: 1.1 }}
+                 href="/hatchbacks"
+                className="hatchback items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Hatchbacks</p>
-                </div>
-                <div className="saloon items-center ">
+                </motion.a>
+                <motion.a
+                 whileHover={{ scale: 1.1 }}
+                 href="/saloons"
+                className="saloon items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Saloons</p>
-                </div>
-                <div className="coope items-center ">
+                </motion.a>
+                <motion.div
+                 whileHover={{ scale: 1.1 }}
+                className="coope items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Coupes</p>
-                </div>
-                <div className="estate items-center ">
+                </motion.div>
+                <motion.div 
+                 whileHover={{ scale: 1.1 }}
+                className="estate items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Estates</p>
-                </div>
-                <div className="sport items-center ">
+                </motion.div>
+                <motion.div
+                 whileHover={{ scale: 1.1 }}
+                className="sport items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Sports cars</p>
-                </div>
+                </motion.div>
             </div>
             <h1  style={{fontWeight:700,fontSize:25,color:'#040316'}} className="text-start ml-8 mt-8">Explore your car manufacturer </h1>
                 <div className="flex flex-col sm:flex-row items-center sm:justify-evenly">

@@ -38,6 +38,13 @@ html {
   margin-top: -20px;
   margin-left: 20px;
 }
+.dot1{
+  background-color: #443DFF;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+}
 .custom-input-class{
 border:1px solid  #040316;
 }

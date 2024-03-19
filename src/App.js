@@ -33,6 +33,7 @@ const theme = createTheme({
 function App() {
   const [isContactSubmitted, setIsContactSubmitted] = useState(false);
 
+
   const handleContactSubmit = () => {
     setIsContactSubmitted(true);
   };

@@ -1,32 +1,30 @@
 import React from 'react';
 import Navbar from './Navbar';
 
-import Nisanqashqai from '../src/images/nissancqashqai.webp'
+import clio from '../src/hatchbackimages/clio.webp'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
-import Nisanqashqai2 from '../src/images/nissancqashqai2.webp'
+import yaris from '../src/hatchbackimages/yaris.webp'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
-import renaultcaptur from '../src/images/renaultcaptur.webp'
-import Tcross from '../src/images/Tcross.webp'
-import yariscross from '../src/images/yariscross.webp'
-import puma from '../src/images/puma.webp'
-import astral from '../src/images/astral.webp'
-import tiguan from '../src/images/tiguan.webp'
-import Hrv from '../src/images/Hrv.webp'
-import q2 from '../src/images/q2.webp'
-import x1 from '../src/images/x1.webp'
-import teslay from '../src/images/teslay.webp'
-import macan from '../src/images/macan.webp'
-import glb from '../src/images/glb.webp'
+import aygo from '../src/hatchbackimages/aygo.webp'
+import leaf from '../src/hatchbackimages/leaf.webp'
+import micra from '../src/hatchbackimages/micra.webp'
+import a1 from '../src/hatchbackimages/a1.webp'
+import series1 from '../src/hatchbackimages/series1.webp'
+import fiesta from '../src/hatchbackimages/fiesta.webp'
+import jazz from '../src/hatchbackimages/jazz.webp'
+import a3 from '../src/hatchbackimages/a3.webp'
+import aclass from '../src/hatchbackimages/aclass.webp'
+import hondae from '../src/hatchbackimages/hondae.webp'
+import ID3 from '../src/hatchbackimages/ID3.webp'
+import polo from '../src/hatchbackimages/polo.webp'
 import { motion } from 'framer-motion';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import xm from '../src/images/xm.webp'
-import q8 from '../src/images/q8.webp'
-import ix from '../src/images/ix.webp'
-import golf from '../src/images/golf.webp'
+import focus from '../src/hatchbackimages/focus.webp'
+import golf8 from '../src/hatchbackimages/golf8.webp'
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
@@ -49,16 +47,16 @@ import MailIcon from '@mui/icons-material/Mail';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Success from './Messages/Success';
-const SUVsPage = () => {
-  const [open, setOpen] =useState(false);
+
+const Hatchbacks = () => {
+    const [open, setOpen] =useState(false);
 
   const handleClick = () => {
     setOpen(true);
     setAdded(true)
     setEmpty(false)
   };
-
-const [empty,setEmpty]=useState(true)
+  const [empty,setEmpty]=useState(true)
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -77,22 +75,22 @@ const [empty,setEmpty]=useState(true)
 
  
 const cars = [
-  { title: 'Nissan Juke', brand: 'Nissan', fuel: 'Petrol', price: '18,618$',description:'Sleek small SUV with lots of tech', image: Nisanqashqai2 },
-  { title: 'Renault Captur', brand: 'Renault', fuel: 'Diesel', price: '17,652$',description:'Stylish SUV with economic Diesel', image: renaultcaptur },
-  { title: 'Toyota Yaris Cross', brand: 'Toyota', fuel: 'Diesel', price: '23,044$',description:'SUV with economic engine', image: yariscross },
-  { title: 'Mercedes GLB', brand: 'Mercedes', fuel: 'Diesel', price: '42,824$',description:'Stylish 7 people SUV', image: glb },
-  { title: 'Ford Puma', brand: 'Ford', fuel: 'Petrol', price: '26,044$',description:'Head-turning,fun-to-drive SUV', image: puma },
-  { title: 'Renault Astral', brand: 'Renault', fuel: 'Electric', price: '31.105$',description:'Mid-size hybrid SUV', image: astral },
-  { title: 'Volkswagen Tiguan', brand: 'Volkswagen', fuel: 'Petrol', price: '33.641$',description:'Practical,high-tech SUV', image: tiguan},
-  { title: 'Honda HR-V', brand: 'Honda', fuel: 'Electric', price: '28.327$',description:'Rooomy family SUV ', image: Hrv},
-  { title: 'Audi Q2', brand: 'Audi', fuel: 'Petrol', price: '27,414$',description:'Good-looking small SUV ', image: q2},
-  { title: 'BMW X1', brand: 'BMW', fuel: 'Petrol', price: '37.455$',description:'Quality family SUV ', image: x1},
-  { title: 'Tesla Model Y', brand: 'Tesla', fuel: 'Electric', price: '44.125$',description:'High performance electric SUV ', image: teslay},
-  { title: 'Porsche Macan', brand: 'Porsche', fuel: 'Petrol', price: '52.321$',description:'Stylish SUV that drives like sports-car', image: macan},
-  { title: 'BMW XM ', brand: 'BMW', fuel: 'Petrol', price: '99.448$',description:'M-exlusive SUV with performance', image: xm},
-  { title: 'Audi Q8', brand: 'Audi', fuel: 'Petrol', price: '104.058$',description:'V8 large luxury Suv', image: q8},
-  { title: 'BMW iX', brand: 'BMW', fuel: 'Electric', price: '63.998$',description:'Practical electric SUV', image: ix},
-  { title: 'Volkswagen Golf Alltrack', brand: 'Volkswagen', fuel: 'Diesel', price: '33.998$',description:'High-riding estate four-wheel drive', image: golf},
+  { title: 'Renault Clio', brand: 'Renault', fuel: 'Petrol', price: '15,449$',description:'Big-booted supermini polished cabin', image: clio},
+  { title: 'Toyota Aygo X', brand: 'Toyota', fuel: 'Diesel', price: '14,612$',description:'Stylish spacious baby SUV', image: aygo },
+  { title: 'Nissan Leaf', brand: 'Nissan', fuel: 'Electric', price: '23,044$',description:'Electric family car', image: leaf },
+  { title: 'Volkswagen Polo', brand: 'Volkswagen', fuel: 'Petrol', price: '19,824$',description:'Small family classy car', image: polo },
+  { title: 'Volkswagen Golf', brand: 'Volkswagen', fuel: 'Petrol', price: '26,044$',description:'family-comfortable car', image: golf8 },
+  { title: 'Nissan Micra', brand: 'Nissan', fuel: 'Diesel', price: '31.105$',description:'Comfortable stylish car', image: micra },
+  { title: 'Audi A1', brand: 'Audi', fuel: 'Petrol', price: '33.641$',description:'Posh small car with lots of kit', image: a1},
+  { title: 'Toyota Yaris', brand: 'Toyota', fuel: 'Electric', price: '28.327$',description:'Small hybric sporty car', image: yaris},
+  { title: 'BMW 1 Series', brand: 'BMW', fuel: 'Diesel', price: '27,414$',description:'High end high tech hatchback ', image: series1},
+  { title: 'Ford Fiesta', brand: 'Ford', fuel: 'Diesel', price: '22.455$',description:'Good value small car', image: fiesta},
+  { title: 'Honda Jazz', brand: 'Honda', fuel: 'Electric', price: '25.125$',description:'Spacious electric hatchback ', image: jazz},
+  { title: 'Audi A3', brand: 'Audi', fuel: 'Petrol', price: '32.321$',description:'High-tech upmarket hatchback', image: a3},
+  { title: 'Mercedes A-Class ', brand: 'Mercedes', fuel: 'Petrol', price: '30.448$',description:'Well-appointed premium hatchback', image: aclass},
+  { title: 'Ford Focus ST', brand: 'Ford', fuel: 'Petrol', price: '36.058$',description:'Powerful hot-hatch', image: focus},
+  { title: 'Honda e', brand: 'Honda', fuel: 'Electric', price: '29.998$',description:'Funky all-electric hatchback', image: hondae},
+  { title: 'Volkswagen ID3', brand: 'Volkswagen', fuel: 'Electric', price: '33.998$',description:'Volkswagen first electric car ', image: ID3},
   // Add more car data as needed
 ];
 const [selectedBrand, setSelectedBrand] = useState('');
@@ -162,8 +160,8 @@ const closeInbox  =(contentId) =>{
 } 
 
 const clearInbox = () => {
-  setAdded(false)
-  setEmpty(true)
+    setAdded(false)
+    setEmpty(true)
 };
 
 
@@ -196,8 +194,8 @@ const clearInbox = () => {
                 <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} id='first' onClick={()=>openInbox ('first')} style={{width:'fit-content',marginBottom:0}}>
                 <InboxIcon style={{width:30,color:'#040316'}}/>
                 {added && 
-                <div className='dot'>
-                    <div className="dot1 animate-ping"></div>
+                <div className='dot animate-ping'>
+                      <div className="dot1 animate-ping"></div>
                 </div>
                 }
                 </IconButton>
@@ -214,7 +212,7 @@ const clearInbox = () => {
                     className='inboxshowed flex flex-col justify-center items-center gap-14'>
                        <h2 style={{color:'#040316',fontSize:22}} className='font-semibold'>Inbox</h2>
                         <div className={`hide ${isClicked === 'second' ? 'clicked' : ''}`}>
-                          {empty && <p>The Inbox is empty</p>}
+                            {empty && <p>The Inbox is empty</p>}
                         {added && <WishList/> }
                         </div>
                           <div className="flex gap-2">
@@ -349,7 +347,7 @@ const clearInbox = () => {
         </div>
       <div className="empty2"></div>
       <div style={{alignItems:'start'}} className="flex flex-col justify-start items-start">
-    <h1 className='Intro ml-4 text-center'>SUVs</h1>
+    <h1 className='Intro ml-4 text-center'>Hatchbacks</h1>
     <h1 className='ml-4 text-center'>Let us help you find your perfect new car </h1>
       </div>
       <div className="flex gap-2 mt-12 ml-4">
@@ -363,7 +361,7 @@ const clearInbox = () => {
       />
         <Autocomplete
         id="price-autocomplete"
-        options={['18,618$','17,652$', '20,000$', '22,500$','26,044$','27,414$','28.327$','31.105$','33.641$','33.998$','42,824$','44.125$','52.321$','63.998$','99.448$','104.058$', 'other prices...']} // Sample prices
+        options={['14,612$' ,'15,449$','18,618$','17,652$','19,824$', '20,000$', '22,500$','22.455$','25.125$','26,044$','27,414$','28.327$','29.998$','30.448$','31.105$','32.321$','33.641$','33.998$','36.058$','42,824$','44.125$', 'other prices...']} // Sample prices
         renderInput={(params) => <TextField {...params} style={{width:150}} label="Price" />}
         onChange={(event, newValue) => {
           setSelectedPrice(newValue);
@@ -414,5 +412,5 @@ const clearInbox = () => {
     </div>
   );
 }
-
-export default SUVsPage;
+ 
+export default Hatchbacks;
