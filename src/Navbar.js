@@ -115,7 +115,7 @@ const Navbar = ({ isContactSubmitted }) => {
                     animate="animate"
                     exit="initial"
                     className='inboxshowed flex flex-col justify-center items-center gap-14'>
-                       <h2 style={{color:'#040316',fontSize:18}} className='font-semibold'>Inbox</h2>
+                       <h2 style={{color:'#040316',fontSize:22}} className='font-semibold'>Inbox</h2>
                         <div className={`hide ${isClicked === 'second' ? 'clicked' : ''}`}>
                         {isContactSubmitted && <Success />}
                         </div>
