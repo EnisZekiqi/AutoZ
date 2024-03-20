@@ -20,7 +20,7 @@ import aclass from '../src/hatchbackimages/aclass.webp'
 import hondae from '../src/hatchbackimages/hondae.webp'
 import ID3 from '../src/hatchbackimages/ID3.webp'
 import polo from '../src/hatchbackimages/polo.webp'
-import { motion } from 'framer-motion';
+import { motion,AnimatePresence } from 'framer-motion';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import focus from '../src/hatchbackimages/focus.webp'
@@ -47,6 +47,8 @@ import MailIcon from '@mui/icons-material/Mail';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Success from './Messages/Success';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 
 const Hatchbacks = () => {
     const [open, setOpen] =useState(false);
@@ -164,6 +166,9 @@ const clearInbox = () => {
     setEmpty(true)
 };
 
+const [openo,setOpeno] =useState (false);
+const [open1,setOpen1]=useState(false);
+const [open2,setOpen2]=useState(false);
 
 
   return (
@@ -174,9 +179,135 @@ const clearInbox = () => {
             <h1 style={{color:'#040316'}} className="text-3xl font-bold ">AutoZ</h1>
             </div>
             <div id='sho' className="flex items-center" >
-                <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#about">About</a></li>
-                <li  style={{color:'#040316'}} className='px-4 font-semibold'><a href="#vehicle">Vehicle Models</a></li>
-                <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#contact">Contact</a></li>
+            <div
+              onMouseEnter={()=>setOpeno(true)}
+              onMouseLeave={()=>setOpeno(false)}
+               className="group relative h-fit w-fit items-center">
+              <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#about">About us</a></li>
+                <span 
+                style={{
+                  transform: openo ? "scaleX(1)": "scaleX(0)"
+                }}
+                className='vija absolute -bottom-2 left-2 right-2 origin-left h-1 rounded-full transition-transform duration-300 ease-out'></span>
+                  <AnimatePresence>
+                      {openo && (
+                    <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 15 }}
+                    style={{ translateX: "-25%" }}
+                    className='absolute'
+                    >
+                      <div className="absolute top-2 left-0 right-0 h-8 bg-transparent" />
+                      <div className="moretext-about flex">
+                        <div className="abouttt flex flex-col text-center">
+                          <h3 className='font-bold text-xl mt-4'>About us</h3>
+                          <p className='font-normal text-sm mt-4 pl-2 pr-2'>AutoZ started at 2024 in Kosovo with very passion about cars </p>
+                        </div>
+                        <div className="kallxoja flex ml-4 items-center">
+                          <div className="kallxoja1 flex flex-col">
+                            <div className="flex items-center mb-2 justify-center font-semibold"><LocationOnIcon sx={{ color:"#2F27CE" }}/>Location</div>
+                            <p className='text-center pl-2 pr-2'>City: Vushtrri</p>
+                            <p className='text-center pl-2 pr-2'>Country: Kosovo</p>
+                            <p className='text-center '>Street: Faruk Beqiri</p>
+                          </div>
+                        </div>
+                        <div className="kallxoja flex ml-4 items-center pr-4">
+                          <div className="kallxoja1 flex flex-col">
+                            <div className="flex items-center mb-2 justify-center font-semibold">< MiscellaneousServicesIcon sx={{ color:"#2F27CE" }}/>Services</div>
+                            <p className='text-center pl-2 pr-2'>Buy a Car</p>
+                            <p className='text-center pl-2 pr-2'>Find a Car</p>
+                            <p className='text-center '>Car Reviews</p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                    )}
+                  </AnimatePresence>
+              </div> 
+              <div
+              onMouseEnter={() => setOpen1(true)} onMouseLeave={() => setOpen1(false)}
+              className="group relative">
+                <li style={{ color: '#040316' }} className='px-4 font-semibold '>
+                  <a href="#vehicle">
+                    Vehicle Models
+                    <div className="absolute top-2 left-0 right-0 h-8 bg-transparent" />
+                  </a>
+                  <span
+                  style={{
+                    transform: open1 ? "scaleX(1)" : "scaleX(0)"
+                  }}
+                  className='vija absolute -bottom-2 left-2 right-2 origin-left h-1 rounded-full transition-transform duration-300 ease-out'
+                ></span>
+                </li>
+                <AnimatePresence>
+                {open1 && (
+                  <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 15 }}
+                  style={{ translateX: "-25%" }}
+                  className='absolute'>
+                     <div className="absolute top-2 left-0 right-0 h-8 bg-transparent" />
+                     <div className="moretext left-2 -bottom-10 text-sm text-gray-600">
+                     <div className="vehicle3 flex  overflow-y-hidden justify-evenly ">
+                      <div className="flex flex-col gap-4">
+                      <motion.a
+                     initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      href="/suvs" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center mt-8 font-semibold">SUVs</p>
+                      </motion.a>
+                      <motion.a
+                      initial={{opacity:0, y: 15}}
+                      whileInView={{ opacity:1, y: 0  }}
+                      href="/hatchbacks" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center font-semibold">Hatchbacks</p>
+                      </motion.a>
+                      <motion.a
+                      initial={{opacity:0, y: 15}}
+                      whileInView={{ opacity:1, y: 0  }}
+                      href="/saloons" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center font-semibold">Saloons</p>
+                      </motion.a>
+                      </div>
+                      <div className="flex flex-col gap-4">
+                      <motion.a
+                      initial={{opacity:0, y: 15}}
+                      whileInView={{ opacity:1, y: 0  }}
+                      href="/suvs" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center mt-8 font-semibold">Coupes</p>
+                      </motion.a>
+                      <motion.a
+                      initial={{opacity:0, y: 15}}
+                      whileInView={{ opacity:1, y: 0  }}
+                      href="/hatchbacks" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center font-semibold">Estates</p>
+                      </motion.a>
+                      <motion.a
+                      initial={{opacity:0, y: 15}}
+                      whileInView={{ opacity:1, y: 0  }}
+                      href="/saloons" className="">
+                      <p style={{fontSize:18,color:'#040316'}} className="suvx text-center font-semibold">Sports cars</p>
+                      </motion.a>
+                      </div>
+                    </div>
+                      </div>
+                  </motion.div>
+                )}
+                </AnimatePresence>
+               </div>
+               <div
+                    onMouseEnter={()=>setOpen2(true)}
+                    onMouseLeave={()=>setOpen2(false)}
+                    className='group relative h-fit w-fit items-center '>
+                    <li style={{color:'#040316'}} className='px-4 font-semibold'> <a href="#contact">Contact</a></li>
+                    <span 
+                      style={{
+                        transform: open2 ? "scaleX(1)": "scaleX(0)"
+                      }}
+                      className='vija absolute -bottom-2 left-2 right-2 origin-left h-1 rounded-full transition-transform duration-300 ease-out'></span>
+                    </div>
             </div>
             <div className="flex items-center">
             <Tooltip title="Home">
