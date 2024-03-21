@@ -183,13 +183,13 @@ const Navbar = ({ isContactSubmitted}) => {
                       <motion.a
                       initial={{opacity:0, y: 15}}
                       whileInView={{ opacity:1, y: 0  }}
-                      href="/suvs" className="">
+                      href="/coupes" className="">
                       <p style={{fontSize:18,color:'#040316'}} className="suvx text-center mt-8 font-semibold">Coupes</p>
                       </motion.a>
                       <motion.a
                       initial={{opacity:0, y: 15}}
                       whileInView={{ opacity:1, y: 0  }}
-                      href="/hatchbacks" className="">
+                      href="/estates" className="">
                       <p style={{fontSize:18,color:'#040316'}} className="suvx text-center font-semibold">Estates</p>
                       </motion.a>
                       <motion.a
@@ -290,7 +290,7 @@ const Navbar = ({ isContactSubmitted}) => {
                 initial="initial"
                 whileInView="animate" 
                 viewport={{ once: true }}
-                style={{color:'#040316'}} id='li' className='px-4 font-semibold'>Buy a Car</motion.li>
+                style={{color:'#040316'}} id='li' className='px-4 font-semibold'><a href="buycar">Buy a Car</a></motion.li>
                 </ListItem>
                 </motion.div>
             <motion.div

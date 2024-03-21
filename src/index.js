@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import SUVsPage from './SUVsPage';
 import Hatchbacks from './Hatchbacks';
 import Saloons from './Saloons'
+import Coupes from './Coupes'
+import Estates from './Estates'
+import SportsCar from './SportsCar';
+import Buycar from './Buycar';
 import { useState } from 'react';
 import {
   createBrowserRouter,
@@ -27,6 +31,22 @@ const router = createBrowserRouter([
   {
     path: "saloons",
     element: <Saloons /> ,
+  },
+  {
+    path: "coupes",
+    element: <Coupes /> ,
+  },
+  {
+    path: "estates",
+    element: <Estates /> ,
+  },
+  {
+    path: "sportscar",
+    element: <SportsCar /> ,
+  },
+  {
+    path: "buycar",
+    element: <Buycar /> ,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -27,21 +27,24 @@ const VehicleModels = () => {
                 className="saloon items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Saloons</p>
                 </motion.a>
-                <motion.div
+                <motion.a
                  whileHover={{ scale: 1.1 }}
+                 href="/coupes"
                 className="coope items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Coupes</p>
-                </motion.div>
-                <motion.div 
+                </motion.a>
+                <motion.a
                  whileHover={{ scale: 1.1 }}
+                 href="/estates"
                 className="estate items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Estates</p>
-                </motion.div>
-                <motion.div
+                </motion.a>
+                <motion.a
                  whileHover={{ scale: 1.1 }}
+                 href="/sportscar"
                 className="sport items-center ">
                 <p style={{fontSize:14}} className="text-center mt-24">Sports cars</p>
-                </motion.div>
+                </motion.a>
             </div>
             <h1  style={{fontWeight:700,fontSize:25,color:'#040316'}} className="text-start ml-8 mt-8">Explore your car manufacturer </h1>
                 <div className="flex flex-col sm:flex-row items-center sm:justify-evenly">

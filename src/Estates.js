@@ -1,36 +1,31 @@
-import React from 'react';
-import Navbar from './Navbar';
-
-import Nisanqashqai from '../src/images/nissancqashqai.webp'
+import focus1 from '../src/estates/focus1.webp'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
-import Nisanqashqai2 from '../src/images/nissancqashqai2.webp'
+import yaris from '../src/hatchbackimages/yaris.webp'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
-import renaultcaptur from '../src/images/renaultcaptur.webp'
-import Tcross from '../src/images/Tcross.webp'
-import yariscross from '../src/images/yariscross.webp'
-import puma from '../src/images/puma.webp'
-import astral from '../src/images/astral.webp'
-import tiguan from '../src/images/tiguan.webp'
-import Hrv from '../src/images/Hrv.webp'
-import q2 from '../src/images/q2.webp'
-import x1 from '../src/images/x1.webp'
-import teslay from '../src/images/teslay.webp'
-import macan from '../src/images/macan.webp'
-import glb from '../src/images/glb.webp'
+import corolla from '../src/estates/corolla.webp'
+import avant from '../src/estates/avant.webp'
+import touring2 from '../src/estates/touring2.webp'
+import taycan from '../src/estates/taycan.webp'
+import series1 from '../src/hatchbackimages/series1.webp'
+import fiesta from '../src/hatchbackimages/fiesta.webp'
+import jazz from '../src/hatchbackimages/jazz.webp'
+import a3 from '../src/hatchbackimages/a3.webp'
+import aclass from '../src/hatchbackimages/aclass.webp'
+import hondae from '../src/hatchbackimages/hondae.webp'
+import ID3 from '../src/hatchbackimages/ID3.webp'
+import avant2 from '../src/estates/avant2.webp'
 import { motion,AnimatePresence } from 'framer-motion';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import xm from '../src/images/xm.webp'
-import q8 from '../src/images/q8.webp'
-import ix from '../src/images/ix.webp'
-import golf from '../src/images/golf.webp'
+import focus from '../src/hatchbackimages/focus.webp'
+import touring from '../src/estates/touring.webp'
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import paserati from '../src/estates/paserati.webp'
 import WishList from './Messages/WishList';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -52,130 +47,122 @@ import Success from './Messages/Success';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 
-const SUVsPage = () => {
-  const [open, setOpen] =useState(false);
+const Estates = () => {
+    const [open, setOpen] =useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-    setAdded(true)
-    setEmpty(false)
-  };
-
-const [empty,setEmpty]=useState(true)
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    const handleClick = () => {
+      setOpen(true);
+      setAdded(true)
+      setEmpty(false)
+    };
+    const [empty,setEmpty]=useState(true)
+  
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+  
+    const[img,setImg]=useState(null);
+  
+    const nextImg =(contentId)=>{
+      setImg(img === contentId ? null :contentId )
+    }
+  
+  
+   
+  const cars = [
+    { title: 'Ford Focus Estate', brand: 'Ford', fuel: 'Diesel', price: '25,449$',description:'Family estate that is practical', image: focus1},
+    { title: 'Toyota Corolla Touring', brand: 'Toyota', fuel: 'Diesel', price: '24,612$',description:'Efficient well-equiped estate', image: corolla },
+    { title: 'Audi A4 Touring', brand: 'Audi', fuel: 'Petrol', price: '33,044$',description:'Plush , high-tech estate', image: avant },
+    { title: 'Volkswagen Passat Estate', brand: 'Volkswagen', fuel: 'Petrol', price: '39,824$',description:'Fmily estate with spacious cabin', image: paserati },
+    { title: 'Audi A6 Avant', brand: 'Audi', fuel: 'Diesel', price: '36,044$',description:'Roomy estate with high-tech', image: avant2 },
+    { title: 'BMW 3 Series Touring', brand: 'BMW', fuel: 'Petrol', price: '38.105$',description:'Sporty estate that is spacious', image: touring },
+    { title: 'BMW i5 Touring', brand: 'BMW', fuel: 'Electric', price: '43.641$',description:'Posh electric estate', image: touring2},
+    { title: 'Porsche Taycan Sport', brand: 'Porsche', fuel: 'Electric', price: '58.327$',description:'Powerful electric estate', image: taycan},
+    
+  ];
+  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
+  const [selectedFuel, setSelectedFuel] = useState('');
+  const [description,setDescription]=useState('');
+  const filteredCars = cars.filter(car => {
+    return (
+      (!selectedBrand || car.brand === selectedBrand) &&
+      (!selectedPrice || car.price === selectedPrice) &&
+      (!selectedFuel || car.fuel === selectedFuel) &&
+      (!description || car.description === description)
+    );
+  });
+  
+  const clearall =()=>{
+    setSelectedBrand('')
+    setSelectedFuel('')
+    setSelectedPrice('')
+  }
+  
+  
+  const [state, setState] = useState({
+    right: false,
+  });
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
-    setOpen(false);
+  
+    setState({ ...state, [anchor]: open });
   };
-
-  const[img,setImg]=useState(null);
-
-  const nextImg =(contentId)=>{
-    setImg(img === contentId ? null :contentId )
+  
+  const varianti={
+    initial :{
+        y:-60,
+        opacity:0,
+    },
+    animate:{
+        y:0,
+        opacity:1,
+        tranisition:{
+            duration:2,
+            delayChildren: 0.3,
+            staggerChildren:1
+        }
+    }
+  
   }
-
-
- 
-const cars = [
-  { title: 'Nissan Juke', brand: 'Nissan', fuel: 'Petrol', price: '18,618$',description:'Sleek small SUV with lots of tech', image: Nisanqashqai2 },
-  { title: 'Renault Captur', brand: 'Renault', fuel: 'Diesel', price: '17,652$',description:'Stylish SUV with economic Diesel', image: renaultcaptur },
-  { title: 'Toyota Yaris Cross', brand: 'Toyota', fuel: 'Diesel', price: '23,044$',description:'SUV with economic engine', image: yariscross },
-  { title: 'Mercedes GLB', brand: 'Mercedes', fuel: 'Diesel', price: '42,824$',description:'Stylish 7 people SUV', image: glb },
-  { title: 'Ford Puma', brand: 'Ford', fuel: 'Petrol', price: '26,044$',description:'Head-turning,fun-to-drive SUV', image: puma },
-  { title: 'Renault Astral', brand: 'Renault', fuel: 'Electric', price: '31.105$',description:'Mid-size hybrid SUV', image: astral },
-  { title: 'Volkswagen Tiguan', brand: 'Volkswagen', fuel: 'Petrol', price: '33.641$',description:'Practical,high-tech SUV', image: tiguan},
-  { title: 'Honda HR-V', brand: 'Honda', fuel: 'Electric', price: '28.327$',description:'Rooomy family SUV ', image: Hrv},
-  { title: 'Audi Q2', brand: 'Audi', fuel: 'Petrol', price: '27,414$',description:'Good-looking small SUV ', image: q2},
-  { title: 'BMW X1', brand: 'BMW', fuel: 'Petrol', price: '37.455$',description:'Quality family SUV ', image: x1},
-  { title: 'Tesla Model Y', brand: 'Tesla', fuel: 'Electric', price: '44.125$',description:'High performance electric SUV ', image: teslay},
-  { title: 'Porsche Macan', brand: 'Porsche', fuel: 'Petrol', price: '52.321$',description:'Stylish SUV that drives like sports-car', image: macan},
-  { title: 'BMW XM ', brand: 'BMW', fuel: 'Petrol', price: '99.448$',description:'M-exlusive SUV with performance', image: xm},
-  { title: 'Audi Q8', brand: 'Audi', fuel: 'Petrol', price: '104.058$',description:'V8 large luxury Suv', image: q8},
-  { title: 'BMW iX', brand: 'BMW', fuel: 'Electric', price: '63.998$',description:'Practical electric SUV', image: ix},
-  { title: 'Volkswagen Golf Alltrack', brand: 'Volkswagen', fuel: 'Diesel', price: '33.998$',description:'High-riding estate four-wheel drive', image: golf},
-  // Add more car data as needed
-];
-const [selectedBrand, setSelectedBrand] = useState('');
-const [selectedPrice, setSelectedPrice] = useState('');
-const [selectedFuel, setSelectedFuel] = useState('');
-const [description,setDescription]=useState('');
-const filteredCars = cars.filter(car => {
-  return (
-    (!selectedBrand || car.brand === selectedBrand) &&
-    (!selectedPrice || car.price === selectedPrice) &&
-    (!selectedFuel || car.fuel === selectedFuel) &&
-    (!description || car.description === description)
-  );
-});
-
-const clearall =()=>{
-  setSelectedBrand('')
-  setSelectedFuel('')
-  setSelectedPrice('')
-}
-
-
-const [state, setState] = useState({
-  right: false,
-});
-const toggleDrawer = (anchor, open) => (event) => {
-  if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    return;
+  
+  const [added,setAdded]=useState(false)
+  
+  const [hide,setHide]=useState(null)
+  
+  const[isClicked,setIsClicked]=useState(null)
+  
+  const [showInbox,setShowInbox] =useState(false)
+  
+  const openInbox = (contentId)=>{
+    setShowInbox(true)
+    setIsClicked(isClicked === contentId ? null : contentId)
   }
+  
+  const closeInbox  =(contentId) =>{
+    setShowInbox(false)
+    setIsClicked(isClicked === contentId ? null : contentId)
+  } 
+  
+  const clearInbox = () => {
+      setAdded(false)
+      setEmpty(true)
+  };
+  
+  const [openo,setOpeno] =useState (false);
+  const [open1,setOpen1]=useState(false);
+  const [open2,setOpen2]=useState(false);
+  
 
-  setState({ ...state, [anchor]: open });
-};
-
-const varianti={
-  initial :{
-      y:-60,
-      opacity:0,
-  },
-  animate:{
-      y:0,
-      opacity:1,
-      tranisition:{
-          duration:2,
-          delayChildren: 0.3,
-          staggerChildren:1
-      }
-  }
-
-}
-
-const [added,setAdded]=useState(false)
-
-const [hide,setHide]=useState(null)
-
-const[isClicked,setIsClicked]=useState(null)
-
-const [showInbox,setShowInbox] =useState(false)
-
-const openInbox = (contentId)=>{
-  setShowInbox(true)
-  setIsClicked(isClicked === contentId ? null : contentId)
-}
-
-const closeInbox  =(contentId) =>{
-  setShowInbox(false)
-  setIsClicked(isClicked === contentId ? null : contentId)
-} 
-
-const clearInbox = () => {
-  setAdded(false)
-  setEmpty(true)
-};
-
-const [openo,setOpeno] =useState (false);
-const [open1,setOpen1]=useState(false);
-const [open2,setOpen2]=useState(false);
-
-  return (
-    <div className="suv-page">
-      <div className="Navbar pt-4 flex justify-between">
+    return ( 
+        <div className="estate-cars">
+                    <div className="Navbar pt-4 flex justify-between">
             <div className="flex items-center">
                 <GraphicEqIcon className='generalicon' style={{width:40}}/>
             <h1 style={{color:'#040316'}} className="text-3xl font-bold ">AutoZ</h1>
@@ -226,7 +213,7 @@ const [open2,setOpen2]=useState(false);
                     </motion.div>
                     )}
                   </AnimatePresence>
-              </div>
+              </div> 
               <div
               onMouseEnter={() => setOpen1(true)} onMouseLeave={() => setOpen1(false)}
               className="group relative">
@@ -327,8 +314,8 @@ const [open2,setOpen2]=useState(false);
                 <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} id='first' onClick={()=>openInbox ('first')} style={{width:'fit-content',marginBottom:0}}>
                 <InboxIcon style={{width:30,color:'#040316'}}/>
                 {added && 
-                <div className='dot'>
-                    <div className="dot1 animate-ping"></div>
+                <div className='dot animate-ping'>
+                      <div className="dot1 animate-ping"></div>
                 </div>
                 }
                 </IconButton>
@@ -345,7 +332,7 @@ const [open2,setOpen2]=useState(false);
                     className='inboxshowed flex flex-col justify-center items-center gap-14'>
                        <h2 style={{color:'#040316',fontSize:22}} className='font-semibold'>Inbox</h2>
                         <div className={`hide ${isClicked === 'second' ? 'clicked' : ''}`}>
-                          {empty && <p>The Inbox is empty</p>}
+                            {empty && <p>The Inbox is empty</p>}
                         {added && <WishList/> }
                         </div>
                           <div className="flex gap-2">
@@ -480,7 +467,7 @@ const [open2,setOpen2]=useState(false);
         </div>
       <div className="empty2"></div>
       <div style={{alignItems:'start'}} className="flex flex-col justify-start items-start">
-    <h1 className='Intro ml-4 text-center'>SUVs</h1>
+    <h1 className='Intro ml-4 text-center'>Estates</h1>
     <h1 className='ml-4 text-center'>Let us help you find your perfect new car </h1>
       </div>
       <div className="flex gap-2 mt-12 ml-4">
@@ -494,7 +481,7 @@ const [open2,setOpen2]=useState(false);
       />
         <Autocomplete
         id="price-autocomplete"
-        options={['18,618$','17,652$', '20,000$', '22,500$','26,044$','27,414$','28.327$','31.105$','33.641$','33.998$','42,824$','44.125$','52.321$','63.998$','99.448$','104.058$', 'other prices...']} // Sample prices
+        options={['24,612$','25,449$','33,044$','36,044$','38.105$','39,824$','43.641$','58.327$', 'other prices...']} // Sample prices
         renderInput={(params) => <TextField {...params} style={{width:150}} label="Price" />}
         onChange={(event, newValue) => {
           setSelectedPrice(newValue);
@@ -542,8 +529,8 @@ const [open2,setOpen2]=useState(false);
             ))}
                 
             </div>
-    </div>
-  );
+        </div>
+     );
 }
-
-export default SUVsPage;
+ 
+export default Estates;
