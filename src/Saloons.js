@@ -1,40 +1,40 @@
 import React from 'react';
 import Navbar from './Navbar';
 
-import clio from '../src/hatchbackimages/clio.webp'
+import a4 from '../src/saloons/a4.webp'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import yaris from '../src/hatchbackimages/yaris.webp'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useState } from 'react';
-import aygo from '../src/hatchbackimages/aygo.webp'
-import leaf from '../src/hatchbackimages/leaf.webp'
-import micra from '../src/hatchbackimages/micra.webp'
-import a1 from '../src/hatchbackimages/a1.webp'
-import series1 from '../src/hatchbackimages/series1.webp'
-import fiesta from '../src/hatchbackimages/fiesta.webp'
-import jazz from '../src/hatchbackimages/jazz.webp'
+import a6 from '../src/saloons/a6.webp'
+import serie3 from '../src/saloons/serie3.webp'
+import model3 from '../src/saloons/model3.webp'
+import asaloon from '../src/saloons/asaloon.webp'
+import arteon from '../src/saloons/arteon.webp'
+import a7 from '../src/saloons/a7.webp'
+import i5 from '../src/saloons/i5.webp'
 import a3 from '../src/hatchbackimages/a3.webp'
 import aclass from '../src/hatchbackimages/aclass.webp'
 import hondae from '../src/hatchbackimages/hondae.webp'
 import ID3 from '../src/hatchbackimages/ID3.webp'
-import polo from '../src/hatchbackimages/polo.webp'
+import id7 from '../src/saloons/id7.webp'
 import { motion,AnimatePresence } from 'framer-motion';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import focus from '../src/hatchbackimages/focus.webp'
-import golf8 from '../src/hatchbackimages/golf8.webp'
+import panamera from '../src/saloons/panamera.webp'
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import serie5 from '../src/saloons/serie5.webp'
 import WishList from './Messages/WishList';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import MenuIcon from '@mui/icons-material/Menu';
 import Tooltip from '@mui/material/Tooltip';
-import Box from '@mui/material/Box';
+import i4 from '../src/saloons/i4.webp'
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -79,22 +79,18 @@ const Saloons = () => {
 
  
 const cars = [
-  { title: 'Renault Clio', brand: 'Renault', fuel: 'Petrol', price: '15,449$',description:'Big-booted supermini polished cabin', image: clio},
-  { title: 'Toyota Aygo X', brand: 'Toyota', fuel: 'Diesel', price: '14,612$',description:'Stylish spacious baby SUV', image: aygo },
-  { title: 'Nissan Leaf', brand: 'Nissan', fuel: 'Electric', price: '23,044$',description:'Electric family car', image: leaf },
-  { title: 'Volkswagen Polo', brand: 'Volkswagen', fuel: 'Petrol', price: '19,824$',description:'Small family classy car', image: polo },
-  { title: 'Volkswagen Golf', brand: 'Volkswagen', fuel: 'Petrol', price: '26,044$',description:'family-comfortable car', image: golf8 },
-  { title: 'Nissan Micra', brand: 'Nissan', fuel: 'Diesel', price: '31.105$',description:'Comfortable stylish car', image: micra },
-  { title: 'Audi A1', brand: 'Audi', fuel: 'Petrol', price: '33.641$',description:'Posh small car with lots of kit', image: a1},
-  { title: 'Toyota Yaris', brand: 'Toyota', fuel: 'Electric', price: '28.327$',description:'Small hybric sporty car', image: yaris},
-  { title: 'BMW 1 Series', brand: 'BMW', fuel: 'Diesel', price: '27,414$',description:'High end high tech hatchback ', image: series1},
-  { title: 'Ford Fiesta', brand: 'Ford', fuel: 'Diesel', price: '22.455$',description:'Good value small car', image: fiesta},
-  { title: 'Honda Jazz', brand: 'Honda', fuel: 'Electric', price: '25.125$',description:'Spacious electric hatchback ', image: jazz},
-  { title: 'Audi A3', brand: 'Audi', fuel: 'Petrol', price: '32.321$',description:'High-tech upmarket hatchback', image: a3},
-  { title: 'Mercedes A-Class ', brand: 'Mercedes', fuel: 'Petrol', price: '30.448$',description:'Well-appointed premium hatchback', image: aclass},
-  { title: 'Ford Focus ST', brand: 'Ford', fuel: 'Petrol', price: '36.058$',description:'Powerful hot-hatch', image: focus},
-  { title: 'Honda e', brand: 'Honda', fuel: 'Electric', price: '29.998$',description:'Funky all-electric hatchback', image: hondae},
-  { title: 'Volkswagen ID3', brand: 'Volkswagen', fuel: 'Electric', price: '33.998$',description:'Volkswagen first electric car ', image: ID3},
+  { title: 'Audi A4', brand: 'Audi', fuel: 'Diesel', price: '34,449$',description:'Plush saloon best all-rounder', image: a4},
+  { title: 'Audi A6', brand: 'Audi', fuel: 'Diesel', price: '40,612$',description:'Hugely practical saloon car', image: a6 },
+  { title: 'BMW 3 Series', brand: 'BMW', fuel: 'Petrol', price: '36,058$',description:'Practical well0built family car', image: serie3 },
+  { title: 'Volkswagen ID7', brand: 'Volkswagen', fuel: 'Electric', price: '51,824$',description:'Sporty-looking electric saloon', image: id7 },
+  { title: 'BMW 5 Series', brand: 'BMW', fuel: 'Petrol', price: '46,044$',description:'Executive saloon with petrol power', image: serie5 },
+  { title: 'Tesla Model 3', brand: 'Tesla', fuel: 'Electric', price: '39.105$',description:'High-tech electric car', image: model3 },
+  { title: 'Porsche Panamera', brand: 'Porsche', fuel: 'Petrol', price: '53.641$',description:'Powerful luxury saloon', image: panamera},
+  { title: 'Mercedes A-Class Saloon', brand: 'Mercedes', fuel: 'Diesel', price: '28.327$',description:'small stylish saloon', image: asaloon},
+  { title: 'Volkswagen Arteon', brand: 'Volkswagen', fuel: 'Petrol', price: '37,414$',description:'A Passat with coupe styling ', image: arteon},
+  { title: 'BMW i4', brand: 'BMW', fuel: 'Electric', price: '42.455$',description:'Capable electric saloon car', image: i4},
+  { title: 'Audi A7', brand: 'Audi', fuel: 'Petrol', price: '55.125$',description:'Stylish-practical saloon', image: a7},
+  { title: 'Bmw i5', brand: 'Bmw', fuel: 'Electric', price: '59.321$',description:'Posh electric family car', image: i5},
   // Add more car data as needed
 ];
 const [selectedBrand, setSelectedBrand] = useState('');
@@ -494,7 +490,7 @@ const [open2,setOpen2]=useState(false);
       />
         <Autocomplete
         id="price-autocomplete"
-        options={['14,612$' ,'15,449$','18,618$','17,652$','19,824$', '20,000$', '22,500$','22.455$','25.125$','26,044$','27,414$','28.327$','29.998$','30.448$','31.105$','32.321$','33.641$','33.998$','36.058$','42,824$','44.125$', 'other prices...']} // Sample prices
+        options={[,'34,449$','37,414$','39.105$','40,612$','42.455$','46,044$','51,824$','53.641$','55.125$','59.321$', 'other prices...']} // Sample prices
         renderInput={(params) => <TextField {...params} style={{width:150}} label="Price" />}
         onChange={(event, newValue) => {
           setSelectedPrice(newValue);
