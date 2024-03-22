@@ -433,6 +433,32 @@ border-radius:50% 50% 50% 50%;
   border-radius: 10px;
   border: 1px solid #2F27CE;
 }
+.kurgjo-general{
+  overflow-y: auto;
+  height: 300px;
+  width: 300px;
+  overflow-x: hidden;
+}
+.kallxoja-mercedes::-webkit-scrollbar {
+  width: 5px; /* width of the scrollbar */
+}
+.kallxoja-mercedes::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* color of the track */
+}
+.kallxoja-mercedes::-webkit-scrollbar-thumb {
+  background-color: #888; /* color of the thumb */
+  border-radius: 5px; /* rounded corners for the thumb */
+}
+.kallxoja-mercedes::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* color of the thumb on hover */
+}
+.review{
+  background-color: #2F27CE;
+  color: #DDDBFF;
+  border-radius: 10px;
+  width: 40px;
+}
+
 .kurgjo{
   background-color: transparent;
   height: max-content;
@@ -440,7 +466,23 @@ border-radius:50% 50% 50% 50%;
   width: max-content;
   border-radius: 10px;
 }
+.bbo{
+  background-color: #DDDBFF;
+  color: #2F27CE;
+  font-weight: 700;
+  border: 1px solid #2F27CE;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+}
 .kurgjo2{
+  background-color: transparent;
+  border: none;
+  width: max-content;
+  height: max-content;
+  border-radius: 10px;
+}
+.kurgjo3{
   background-color: transparent;
   border: none;
   width: max-content;
