@@ -9,6 +9,16 @@ import gle from '../src/sports/gle.webp'
 import gtc from '../src/sports/gtc.webp'
 import gja from '../src/sports/gja.webp'
 import Aclass from "./chosenMercedes/Aclass";
+import C43 from "./chosenMercedes/C43";
+import EQS from "./chosenMercedes/EQS";
+import AMG from "./chosenMercedes/AMG";
+import serie3anash from "..//src/saloons/serie3anash.webp"
+import serie5anash from "..//src/saloons/serie5anash.webp"
+import serie8 from "../src/saloons/serie8.webp"
+import Serie3 from "./chosenBMW/Serie3";
+import Serie5 from "./chosenBMW/Serie5";
+import Serie8 from "./chosenBMW/Serie8";
+
 const Buycar = () => {
 
     const [firstpage,setFirstPage] =useState (true)
@@ -26,21 +36,37 @@ const Buycar = () => {
         setMercedes(false)
     }
 
-    const backpage2=() =>{
+    const backpage2=() =>{  //prej choose model te brendet
       setFirstPage(false)
       setSecondPage(true)
       setMercedes(false)
+      setBmw(false)
     }
-    const backpage3 =() =>{
+    const backpage3 =() =>{  //prej specific model te choose model mercedes
       setFirstPage(false)
       setSecondPage(false)
       setMercedes(true)
       setAclass(false)
+      setC43Class(false)
+      setEqsClass(false)
+      setAmg(false)
+    }
+    const backpage4 =()=>{  //prej specific model te choose model bmw 
+      setBmw(true)
+      setSerie3(false)
+      setSerie5(false)
+      setSerie8o(false)
     }
     const [mercedes,setMercedes] =useState (false);
+    const [bmw,setBmw]=useState(false)
 
     const showMercedes =() =>{
       setMercedes(true)
+      setSecondPage(false)
+    }
+    const showBmw= ()=>{
+      setBmw(true)
+      setMercedes(false)
       setSecondPage(false)
     }
 
@@ -51,7 +77,43 @@ const Buycar = () => {
       setMercedes(false)
     }
 
+    const [c43Class,setC43Class]=useState(false);
 
+    const showC43 =()=>{
+      setMercedes(false);
+      setC43Class(true)
+    }
+
+    const [eqsClass,setEqsClass]=useState(false)
+
+    const showeqs =()=>{
+      setMercedes(false);
+      setEqsClass(true)
+    }
+
+    const [amg,setAmg]=useState (false)
+    const showamg = ()=>{
+      setMercedes(false)
+      setAmg(true)
+    }
+
+    const[serie3,setSerie3]=useState(false)
+    const show3serie =()=>{
+      setSerie3(true)
+      setBmw(false)
+    }
+
+    const[serie5,setSerie5]=useState(false)
+    const show5serie =()=>{
+      setSerie5(true)
+      setBmw(false)
+    }
+
+    const[serie8o,setSerie8o]=useState(false)
+    const show8Serie=()=>{
+      setSerie8o(true)
+      setBmw(false)
+    }
 
     return ( 
             <div className="buycar">
@@ -145,8 +207,9 @@ const Buycar = () => {
                         initial={{ scale: 0 ,opacity:0}}
                         animate={{scale:1, opacity:1}}
                         whileHover={{ scale: 1.1 }}
+                        onClick={showBmw}
                         className="kurgjo2 mt-4">
-                         <div className="flex gap-2">
+                         <div className="flex gap-6">
                          <svg
                           className='-ml-2'
                             key="icon2"
@@ -174,9 +237,6 @@ const Buycar = () => {
                             <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
                             </svg>
                             </div>
-                            <div className="background-electric items-center mt-2">
-                                <ElectricBoltIcon sx={{ color:"#DDDBFF",width:'16px',height:'16px' }}/>
-                            </div>
                          </div>
                         </motion.button>
                         <motion.button
@@ -195,38 +255,6 @@ const Buycar = () => {
                             <path d="M19.848 7.848c-.992 0-1.902.348-2.616.928a4.134 4.134 0 00-2.616-.928c-.992 0-1.902.348-2.616.928a4.134 4.134 0 00-2.616-.928c-.992 0-1.902.348-2.616.928a4.152 4.152 0 100 6.448c.714.58 1.624.928 2.616.928s1.902-.348 2.616-.928c.714.58 1.624.928 2.616.928s1.902-.348 2.616-.928a4.152 4.152 0 102.616-7.376zm-2.616 6.018A3.198 3.198 0 0116.634 12c0-.696.222-1.34.598-1.866.376.526.598 1.17.598 1.866 0 .696-.222 1.34-.598 1.866zm-5.232 0A3.198 3.198 0 0111.402 12c0-.696.222-1.34.598-1.866.376.526.598 1.17.598 1.866 0 .696-.222 1.34-.598 1.866zm-5.232 0A3.198 3.198 0 016.17 12c0-.696.222-1.34.598-1.866.376.526.598 1.17.598 1.866 0 .696-.222 1.34-.598 1.866zM.938 12a3.214 3.214 0 015.17-2.549A4.134 4.134 0 005.232 12c0 .961.328 1.846.876 2.549A3.214 3.214 0 01.938 12zm6.49 2.549A4.134 4.134 0 008.304 12c0-.961-.328-1.846-.876-2.549a3.203 3.203 0 011.956-.665c.736 0 1.414.248 1.956.665A4.13 4.13 0 0010.464 12c0 .961.328 1.846.876 2.549a3.203 3.203 0 01-1.956.665 3.196 3.196 0 01-1.956-.665zm5.232 0A4.13 4.13 0 0013.536 12c0-.961-.328-1.846-.876-2.55.542-.416 1.22-.665 1.956-.665s1.414.248 1.956.665a4.13 4.13 0 00-.876 2.549c0 .961.328 1.846.876 2.549a3.203 3.203 0 01-1.956.665 3.19 3.19 0 01-1.956-.664zm7.188.665a3.196 3.196 0 01-1.956-.665A4.136 4.136 0 0018.768 12c0-.961-.328-1.846-.876-2.549a3.214 3.214 0 111.956 5.763z" />
                           </svg>
                            <p style={{color:'#040316',marginTop:12}} className="text-center mr-12 font-semibold">Audi</p>
-                            <div className="background-engine items-center mt-2">
-                            <svg
-                            className="ml-1 mt-1"
-                            viewBox="0 0 24 24"
-                            fill="#DDDBFF"
-                            height="1em"
-                            width="1em"
-                            >
-                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
-                            </svg>
-                            </div>
-                            <div className="background-electric items-center mt-2">
-                                <ElectricBoltIcon sx={{ color:"#DDDBFF",width:'16px',height:'16px' }}/>
-                            </div>
-                         </div>
-                        </motion.button>
-                        <motion.button
-                        initial={{ scale: 0 ,opacity:0}}
-                        animate={{scale:1, opacity:1}}
-                        whileHover={{ scale: 1.1 }}
-                        className="kurgjo2 mt-2">
-                         <div className="flex gap-2">
-                          <svg
-                            className=''
-                            viewBox="0 0 24 24"
-                            fill="#040316"
-                            height="40px"
-                            width="40px"
-                          >
-                            <path d="M12 0C5.36 0 0 5.36 0 12s5.36 12 12 12 12-5.36 12-12S18.64 0 12 0m0 1.41c1.2 0 2.36.22 3.43.59l-3.3 7.13c-.04.04-.04.13-.13.13s-.09-.09-.13-.13L8.57 2c1.07-.37 2.23-.58 3.43-.58M6.9 2.74l3.82 8.23c.08.17.17.22.28.22h2c.12 0 .2-.05.29-.22l3.77-8.23c1.58.9 2.94 2.19 3.9 3.73L15.6 16.84c-.04.09-.1.13-.13.13-.08 0-.08-.08-.13-.13l-2.05-4.54c-.09-.17-.17-.21-.29-.21h-2c-.11 0-.2.04-.29.21l-2.05 4.54c-.05.05-.04.13-.13.13s-.09-.08-.13-.13L3 6.47c.94-1.54 2.32-2.83 3.9-3.73M2.06 8.53l6.17 12c.08.17.17.3.39.3.21 0 .29-.13.38-.3l2.87-6.39c.04-.08.09-.14.13-.14.09 0 .09.1.13.14l2.91 6.39c.09.17.17.3.39.3.21 0 .3-.13.38-.3l6.19-12c.37 1.07.59 2.23.59 3.47-.05 5.79-4.8 10.59-10.59 10.59S1.46 17.79 1.46 12c0-1.2.21-2.35.6-3.47z" />
-                          </svg>
-                            <p style={{color:'#040316',marginTop:10}} className="text-center mr-16 font-semibold">VW</p>
                             <div className="background-engine items-center mt-2">
                             <svg
                             className="ml-1 mt-1"
@@ -338,6 +366,7 @@ const Buycar = () => {
                                    duration:1
                                  }}
                                  className="kurgjo"
+                                 onClick={showC43}
                               >
                               <div className="flex flex-col mt-2">
                             <div className="flex items-center gap-20">
@@ -368,6 +397,7 @@ const Buycar = () => {
                                    duration:1
                                  }}
                                  className="kurgjo"
+                                 onClick={showeqs}
                               >
                               <div className="flex flex-col mt-2">
                             <div className="flex items-center gap-28">
@@ -392,38 +422,7 @@ const Buycar = () => {
                                    duration:1
                                  }}
                                  className="kurgjo"
-                              >
-                              <div className="flex flex-col mt-2">
-                            <div className="flex items-center gap-20">
-                              <div className="flex">
-                              <p style={{color:"#040316"}} className="font-semibold">GLE Coupe</p>
-                              <div className="background-electric ml-4"> 
-                              <svg
-                            className="ml-1 mt-1"
-                            viewBox="0 0 24 24"
-                            fill="#DDDBFF"
-                            height="1em"
-                            width="1em"
-                            >
-                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
-                            </svg>
-                              </div>
-                              </div>
-                                <img width="130px" height="130px" src={gle} alt="" />
-                            </div>
-                          </div>
-                              </motion.button>
-                              <motion.button
-                               initial={{ scale: 0 ,opacity:0}}
-                               animate={{scale:1, opacity:1 }}
-                               whileHover={{ scale: 1.1 }}
-                               transition={{
-                                   type: "spring",
-                                   stiffness: 160,
-                                   damping: 20,
-                                   duration:1
-                                 }}
-                                 className="kurgjo"
+                                 onClick={showamg}
                               >
                               <div className="flex flex-col mt-2">
                             <div className="flex items-center gap-16">
@@ -442,38 +441,6 @@ const Buycar = () => {
                               </div>
                               </div>
                                 <img width="130px" height="130px" src={gtc} alt="" />
-                            </div>
-                          </div>
-                              </motion.button>
-                              <motion.button
-                               initial={{ scale: 0 ,opacity:0}}
-                               animate={{scale:1, opacity:1 }}
-                               whileHover={{ scale: 1.1 }}
-                               transition={{
-                                   type: "spring",
-                                   stiffness: 160,
-                                   damping: 20,
-                                   duration:1
-                                 }}
-                                 className="kurgjo"
-                              >
-                              <div className="flex flex-col mt-2">
-                            <div className="flex items-center gap-28">
-                              <div className="flex">
-                              <p style={{color:"#040316"}} className="font-semibold">G-Class</p>
-                              <div className="background-electric ml-4"> 
-                              <svg
-                            className="ml-1 mt-1"
-                            viewBox="0 0 24 24"
-                            fill="#DDDBFF"
-                            height="1em"
-                            width="1em"
-                            >
-                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
-                            </svg>
-                              </div>
-                              </div>
-                                <img width="130px" height="130px" src={gja} alt="" />
                             </div>
                           </div>
                               </motion.button>
@@ -509,6 +476,231 @@ const Buycar = () => {
                             </motion.div>  
                         </div>
                         }
+                        {c43Class && 
+                         <div>
+                         <C43/>
+                         <motion.div 
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                         className="flex justify-evenly gap-4 mt-16">
+                           <button onClick={backpage3} className="bb">Back</button>
+                           </motion.div>  
+                       </div>
+                        }
+                        {eqsClass && 
+                         <div>
+                         <EQS/>
+                         <motion.div 
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                         className="flex justify-evenly gap-4 mt-16">
+                           <button onClick={backpage3} className="bb">Back</button>
+                           </motion.div>  
+                       </div>
+                        }
+                        {amg && 
+                         <div>
+                         <AMG/>
+                         <motion.div 
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                         className="flex justify-evenly gap-4 mt-16">
+                           <button onClick={backpage3} className="bb">Back</button>
+                           </motion.div>  
+                       </div>
+                        }
+
+                        {bmw &&
+                        <div className="items-center">
+                          <motion.h3 
+                         initial={{ scale: 0 ,opacity:0}}
+                          animate={{scale:1, opacity:1 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 20,
+                              duration:1
+                            }}
+                       style={{color:"#040316"}} className="font-semibold font-lg text-center">Choose model</motion.h3>
+                        <div className="flex flex-col">
+                        <motion.button
+                               initial={{ scale: 0 ,opacity:0}}
+                               animate={{scale:1, opacity:1 }}
+                               whileHover={{ scale: 1.1 }}
+                               transition={{
+                                   type: "spring",
+                                   stiffness: 160,
+                                   damping: 20,
+                                   duration:1
+                                 }}
+                                 className="kurgjo"
+                                 onClick={show3serie}
+                              >
+                              <div className="flex flex-col mt-6">
+                            <div className="flex items-center gap-28">
+                              <div className="flex">
+                              <p style={{color:"#040316"}} className="font-semibold">3 Series</p>
+                              <div className="background-electric ml-4"> <svg
+                            className="ml-1 mt-1"
+                            viewBox="0 0 24 24"
+                            fill="#DDDBFF"
+                            height="1em"
+                            width="1em"
+                            >
+                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
+                            </svg></div>
+                              </div>
+                                <img width="130px" height="130px" src={serie3anash} alt="" />
+                            </div>
+                          </div>
+                              </motion.button>
+                              <motion.button
+                               initial={{ scale: 0 ,opacity:0}}
+                               animate={{scale:1, opacity:1 }}
+                               whileHover={{ scale: 1.1 }}
+                               transition={{
+                                   type: "spring",
+                                   stiffness: 160,
+                                   damping: 20,
+                                   duration:1
+                                 }}
+                                 className="kurgjo"
+                                 onClick={show5serie}
+                              >
+                              <div className="flex flex-col mt-2">
+                            <div className="flex items-center gap-28">
+                              <div className="flex">
+                              <p style={{color:"#040316"}} className="font-semibold">5 Series</p>
+                              <div className="background-electric ml-4"> <svg
+                            className="ml-1 mt-1"
+                            viewBox="0 0 24 24"
+                            fill="#DDDBFF"
+                            height="1em"
+                            width="1em"
+                            >
+                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
+                            </svg></div>
+                              </div>
+                                <img width="130px" height="130px" src={serie5anash} alt="" />
+                            </div>
+                          </div>
+                              </motion.button>
+                              <motion.button
+                               initial={{ scale: 0 ,opacity:0}}
+                               animate={{scale:1, opacity:1 }}
+                               whileHover={{ scale: 1.1 }}
+                               transition={{
+                                   type: "spring",
+                                   stiffness: 160,
+                                   damping: 20,
+                                   duration:1
+                                 }}
+                                 className="kurgjo"
+                                 onClick={show8Serie}
+                              >
+                              <div className="flex flex-col mt-2">
+                            <div className="flex items-center gap-28">
+                              <div className="flex">
+                              <p style={{color:"#040316"}} className="font-semibold">8 Series</p>
+                              <div className="background-electric ml-4"> <svg
+                            className="ml-1 mt-1"
+                            viewBox="0 0 24 24"
+                            fill="#DDDBFF"
+                            height="1em"
+                            width="1em"
+                            >
+                            <path d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7z" />
+                            </svg></div>
+                              </div>
+                                <img width="130px" height="130px" src={serie8} alt="" />
+                            </div>
+                          </div>
+                              </motion.button>
+                        </div>
+                        <motion.div 
+                          initial={{ scale: 0 ,opacity:0}}
+                          animate={{scale:1, opacity:1 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 20,
+                              duration:1
+                            }}
+                          className="flex justify-evenly gap-4 mt-24">
+                            <button onClick={backpage2} className="bb">Back</button>
+                            </motion.div>  
+                        </div>
+                        }
+                         {serie3 && 
+                        <div>
+                          <Serie3/>
+                          <motion.div 
+                          initial={{ scale: 0 ,opacity:0}}
+                          animate={{scale:1, opacity:1 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 20,
+                              duration:1
+                            }}
+                          className="flex justify-evenly gap-4 mt-16">
+                            <button onClick={backpage4} className="bb">Back</button>
+                            </motion.div>  
+                        </div>
+                        }
+                         {serie5 && 
+                        <div>
+                          <Serie5/>
+                          <motion.div 
+                          initial={{ scale: 0 ,opacity:0}}
+                          animate={{scale:1, opacity:1 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 20,
+                              duration:1
+                            }}
+                          className="flex justify-evenly gap-4 mt-16">
+                            <button onClick={backpage4} className="bb">Back</button>
+                            </motion.div>  
+                        </div>
+                        }
+                        {serie8o && 
+                        <div>
+                          <Serie8/>
+                          <motion.div 
+                          initial={{ scale: 0 ,opacity:0}}
+                          animate={{scale:1, opacity:1 }}
+                          transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 20,
+                              duration:1
+                            }}
+                          className="flex justify-evenly gap-4 mt-16">
+                            <button onClick={backpage4} className="bb">Back</button>
+                            </motion.div>  
+                        </div>
+                        }
+
                 </div>
                 <div className="empty"></div>
             </div>

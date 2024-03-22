@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import aclass from '..//hatchbackimages/aclass.webp'
-import StarIcon from '@mui/icons-material/Star';
+import aclass2 from '..//sports/aclass2.webp';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 const Aclass = () => {
     
     const [neu,setNeu] =useState(false)
@@ -11,6 +13,19 @@ const Aclass = () => {
     }
     const chooseUsed = () =>{
         setUsed(true)
+    }
+
+    const [img1,setImg1] =useState(true);
+    const [img2,setImg2]=useState(false);
+
+    const forward = () =>{
+        setImg1(false)
+        setImg2(true);
+    }
+
+    const backward = ()=>{
+        setImg1(true)
+        setImg2(false)
     }
 
     return ( 
@@ -30,30 +45,86 @@ const Aclass = () => {
             </motion.h3>
                 <div className="flex justify-center items-center gap-4 mt-8">
                     <div className="basicA flex flex-col items-center">
+                        <div className="flex">
+                        {img1 && 
                         <img width="250px" height="250px" src={aclass} alt="" />
+                        }
+                        {img2 &&
+                        <img width="250px" height="250px" src={aclass2} alt="" />
+                        }
+                        </div>
+                        <div className="flex gap-4">
+                        <button style={{width:20}} onClick={backward} className="bb mb-4"><NavigateBeforeIcon className="mr-2"/></button>
+                        <button style={{width:20}} onClick={forward} className="bb mb-4"><NavigateNextIcon/></button>
+                        </div>
                         <div className="flex justify-center items-center">
                             <p  style={{color:"#040316"}} className="font-semibold">Review :</p>
                             <div className="review text-center ml-2">
                                 6/10
                             </div>
                         </div>
-                       <div className="flex justify-center items-center mt-4">
+                       <motion.div
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                       className="flex justify-center items-center mt-4">
                        <p  style={{color:"#040316"}} className="font-semibold">Engine : </p>
                         Electric
-                       </div>
-                       <div className="flex justify-center items-center mt-4">
+                       </motion.div>
+                       <motion.div
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                        className="flex justify-center items-center mt-4">
                        <p  style={{color:"#040316"}} className="font-semibold">Model : </p>
                         250e
-                       </div>
-                       <div className="flex justify-center items-center mt-4">
+                       </motion.div>
+                       <motion.div
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                       className="flex justify-center items-center mt-4">
                        <p  style={{color:"#040316"}} className="font-semibold">Range : </p>
                         270km
-                       </div>
-                       <div className="flex justify-center items-center mt-4">
+                       </motion.div>
+                       <motion.div
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                       className="flex justify-center items-center mt-4">
                        <p  style={{color:"#040316"}} className="font-semibold">Usage : </p>
                        New
-                       </div>
-                       <button className="bbo items-center mt-4"> Buy Now</button>
+                       </motion.div>
+                       <motion.button
+                         initial={{ scale: 0 ,opacity:0}}
+                         animate={{scale:1, opacity:1 }}
+                         transition={{
+                             type: "spring",
+                             stiffness: 160,
+                             damping: 20,
+                             duration:1
+                           }}
+                       className="bbo items-center mt-4"> Buy Now</motion.button>
                     </div>
                 </div>
                 {neu && 
