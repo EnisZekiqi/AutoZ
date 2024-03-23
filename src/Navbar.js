@@ -307,7 +307,7 @@ const Navbar = ({ isContactSubmitted}) => {
             initial="initial"
             whileInView="animate" 
             viewport={{ once: true }}
-            style={{color:'#040316'}} className='px-4 font-semibold'>Car Reviews</motion.li>
+            style={{color:'#040316'}} className='px-4 font-semibold'><a href="carreviews">Car Reviews</a></motion.li>
             </ListItem>
             </motion.div>
              <motion.div

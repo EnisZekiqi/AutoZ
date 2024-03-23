@@ -10,6 +10,7 @@ import Coupes from './Coupes'
 import Estates from './Estates'
 import SportsCar from './SportsCar';
 import Buycar from './Buycar';
+import Carreviews from './Carreviews';
 import { useState } from 'react';
 import {
   createBrowserRouter,
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "buycar",
     element: <Buycar /> ,
+  },
+  {
+    path: "carreviews",
+    element: <Carreviews /> ,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

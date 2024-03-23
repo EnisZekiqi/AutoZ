@@ -49,6 +49,17 @@ html {
 
  background-color:#443DFF ;
 }
+.vija2{
+  background-color: #DDDBFF;
+}
+.content-review{
+  background-color: #443DFF;
+  color:#DDDBFF ;
+}
+.content-review2{
+  background-color: #FBFBFE;
+  color:#2F27CE ;
+}
 .custom-input-class{
 border:1px solid  #040316;
 }
@@ -69,6 +80,58 @@ li{
   color: #040316;
   font-size: 60px;
   font-weight: 800;
+}
+.Intro2{
+  color: #DDDBFF;
+  font-size: 70px;
+  font-weight: 800;
+}
+.empty3{
+  height: 150px;
+}
+.img{
+  position: absolute;
+top: 180px;
+
+
+}
+.cardx1{
+  
+background-color: #DDDBFF;
+border-radius: 10px;
+background-position: 0% 5%;
+border: 1px solid #443DFF;
+width: 300px;
+height: 300px;
+}
+.cardx2{
+  background-color: #DDDBFF;
+  border-radius: 10px;
+  border-radius: 10px;
+background-position: 0% 5%;
+border: 1px solid #443DFF;
+width: 300px;
+height: 300px;
+}
+
+.cardx3{
+  background-color: #DDDBFF;
+  border-radius: 10px;
+  border-radius: 10px;
+background-position: 0% 5%;
+border: 1px solid #443DFF;
+width: 300px;
+height: 300px;
+}
+
+
+@media(max-width:887px){
+  .img{
+      display: none;
+  }
+}
+.kerri{
+  margin-right: -70px;
 }
 .bold{
   font-weight: 800;
@@ -500,6 +563,9 @@ border-radius:50% 50% 50% 50%;
   height: fit-content;
 width: 130px;
   background-color: #2F27CE;
+}
+.carreview{
+  background-color: #443DFF;
 }
 .background-electric{
   border-radius:100% ;

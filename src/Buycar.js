@@ -187,18 +187,7 @@ const Buycar = () => {
                             damping: 20,
                             duration:1
                           }}
-                        style={{width:'250px'}} onClick={nextpage} className="bb mt-8 mb-2">I know the make and model</motion.button>
-                        <motion.button
-                         initial={{ scale: 0 ,opacity:0}}
-                         animate={{scale:1, opacity:1}}
-                         whileHover={{ scale: 1.1 }}
-                         transition={{
-                            type: "spring",
-                            stiffness: 160,
-                            damping: 20,
-                            duration:1
-                          }}
-                        style={{width:'250px'}} className="bb mt-2">I'm not sure what i want</motion.button>
+                        style={{width:'250px'}} onClick={nextpage} className="bb mt-8 mb-2">I ready to choose the car</motion.button>
                         </div>
                     }
                       {secondpage && 
