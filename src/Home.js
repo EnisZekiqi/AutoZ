@@ -15,7 +15,7 @@ const Home = () => {
                 <p>Find every model of cars here</p>
             </div>
             <div className='show'>
-            <button className='bb'>Find a Car</button>
+            <button className='bb'><a href='#vehicle'>Find a Car</a></button>
             </div>
           </div>
           <div className="general-showcar mt-12 ml-24 sm:mt-0 sm:w-1/2">
