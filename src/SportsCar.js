@@ -49,15 +49,18 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Success from './Messages/Success';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import Alert from '@mui/material/Alert';
 
 
 const SportsCar = () => {
     const [open, setOpen] =useState(false);
+    const [addedCarTitle,setAddedCarTitle]=useState('');
 
-    const handleClick = () => {
+    const handleClick = (car) => {
       setOpen(true);
       setAdded(true)
       setEmpty(false)
+      setAddedCarTitle(car.title)
     };
     const [empty,setEmpty]=useState(true)
   
@@ -318,8 +321,8 @@ const SportsCar = () => {
                 <IconButton className={`bw ${isClicked === 'first' ? 'clicked' : ''}${isClicked === 'second' ? 'clicked2' : ''}`} id='first' onClick={()=>openInbox ('first')} style={{width:'fit-content',marginBottom:0}}>
                 <InboxIcon style={{width:30,color:'#040316'}}/>
                 {added && 
-                <div className='dot animate-ping'>
-                      <div className="dot1 animate-ping"></div>
+                <div className='dot'>
+                <div className="dot1 animate-ping"></div>
                 </div>
                 }
                 </IconButton>
@@ -337,7 +340,13 @@ const SportsCar = () => {
                        <h2 style={{color:'#040316',fontSize:22}} className='font-semibold'>Inbox</h2>
                         <div className={`hide ${isClicked === 'second' ? 'clicked' : ''}`}>
                             {empty && <p>The Inbox is empty</p>}
-                        {added && <WishList/> }
+                        {added && <Alert
+                      severity="success"
+                      variant="filled"
+                      sx={{ backgroundColor:"#2F27CE",borderRadius:10 }}
+                    >
+                    <p>{`Added "${addedCarTitle}" to Wishlist`}</p>
+                    </Alert> }
                         </div>
                           <div className="flex gap-2">
                           <button id='second' onClick={()=>closeInbox('second')} className='bb'>Close</button>
@@ -518,15 +527,18 @@ const SportsCar = () => {
                 <div className="flex gap-4 mt-4">
                   <button className='bb'><ShoppingCartIcon /> Buy Now</button>
                   <div>
-                  <Button style={{color:'#DDDBFF',backgroundColor:'#2F27CE',fontWeight:700}} className="bb" onClick={handleClick}><AddToPhotosIcon/>Wishlist</Button>
-                  <Snackbar
-                    open={open}
-                    style={{backgroundColor:'#443DFF'}}
-                    autoHideDuration={4000}
-                    onClose={handleClose}
-                    message="Added to Wishlist"
-                    
-                  />
+                  <Button style={{color:'#DDDBFF',backgroundColor:'#2F27CE',fontWeight:700}} className="bb"  onClick={()=>handleClick(car)}><AddToPhotosIcon/>Wishlist</Button>
+                  <Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
+                    <Alert
+                      
+                      onClose={handleClose}
+                      severity="success"
+                      variant="filled"
+                      sx={{ backgroundColor:"#2F27CE",borderRadius:10 }}
+                    >
+                    <p>{`Added "${addedCarTitle}" to Wishlist`}</p>
+                    </Alert>
+                  </Snackbar>
                 </div>
                 </div>
               </div>

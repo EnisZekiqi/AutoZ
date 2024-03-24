@@ -93,7 +93,20 @@ li{
   position: absolute;
 top: 180px;
 
-
+}
+.wishlist-message{
+  background-color: #2F27CE;
+  color: #DDDBFF;
+  border-radius: 10px;
+  width: 200px;
+  height: 70px;
+}
+.wishtlist-text{
+  padding: 15px;
+  background-color: #2F27CE;
+  color: #DDDBFF;
+  border-radius: 10px;
+  width: max-content;
 }
 .cardx1{
   
