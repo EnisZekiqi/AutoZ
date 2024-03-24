@@ -534,6 +534,12 @@ border-radius:50% 50% 50% 50%;
   border-radius: 10px;
   width: 40px;
 }
+.review2{
+  background-color: #DDDBFF;
+  border-radius: 10px;
+  width: 40px;
+  color: #2F27CE;
+}
 
 .kurgjo{
   background-color: transparent;
@@ -543,13 +549,32 @@ border-radius:50% 50% 50% 50%;
   border-radius: 10px;
 }
 .bbo{
+  opacity: 1;
   background-color: #DDDBFF;
+  display: block;
   color: #2F27CE;
   font-weight: 700;
   border: 1px solid #2F27CE;
   border-radius: 10px;
   width: 200px;
   height: 50px;
+}
+
+.bbo2{
+
+  color: #2F27CE;
+  font-weight: 700;
+  width: 200px;
+  height: 50px;
+}
+.brandcard1{
+  background-color: #2F27CE;
+  border-radius: 10px;
+  color: #DDDBFF;
+  width: 160px;
+  height: 160px;
+  font-weight: 700;
+  font-size: 20px;
 }
 .kurgjo2{
   background-color: transparent;
