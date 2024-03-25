@@ -425,7 +425,7 @@ const [open2,setOpen2]=useState(false);
             initial="initial"
             whileInView="animate" 
             viewport={{ once: true }}
-            style={{color:'#040316'}} className='px-4 font-semibold'>Electric Cars</motion.li>
+            style={{color:'#040316'}} className='px-4 font-semibold'><a href="carreviews">Electric Cars</a></motion.li>
             </ListItem>
              </motion.div>
 

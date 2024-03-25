@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -24,6 +24,14 @@ import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import skoda from './hatchbackimages/skoda.webp'
+import hondax from './hatchbackimages//hondax.webp'
+import q8 from './images/q8.webp'
+import x1 from './images/x1.webp'
+import glb from './images/glb.webp'
+import etron from './coupes/etron.webp'
+import i5 from './saloons/i5.webp'
+import taycano from './sports/taycano.webp'
 const varianti={
     initial :{
         y:100,
@@ -113,6 +121,25 @@ const Carreviews = () => {
         setHidebutton(false)
         setShowbutton(true)
       }
+
+      const showMedium= () =>{
+        setMedium(true)
+        setMediumContent(true)
+        setBig(false)
+        setSmall(false)
+        setHidebutton(false)
+        setShowbutton(true)
+      }
+
+      const showBig =()=>{
+        setBig(true)
+        setBigContent(true)
+        setSmall(false)
+        setMedium(false)
+        setHidebutton(false)
+        setShowbutton(true)
+
+      }
   ///   // ////////////////////////////////////////////
       const hideSmall =() =>{
         setMedium(true)
@@ -123,19 +150,37 @@ const Carreviews = () => {
         setShowbutton(false)
       }
 
-      //shfaqet lloji i brendeve when mouse enters 
-      const [mercbab,setMercBab]=useState(true)
-      const [bemwe,setBemwe]=useState(true);
-      const [avdi,setAvdi]=useState(true);
-      const [porzh,setPorzh]=useState(true);
-      /////////////////////////////
+      const hideMedium =()=>{
+        setMedium(true)
+        setBig(true)
+        setSmall(true)
+        setMediumContent(false)
+        setHidebutton(true)
+        setShowbutton(false)
+      }
 
-      const [shfaqe,setShfaqe]=useState(false);
-      const [shfaqe1,setShfaqe1]=useState(false);
-      const [shfaqe2,setShfaqe2]=useState(false);
-      const [shfaqe3,setShfaqe3]=useState(false)
+      const hideBig =() =>{
+        setMedium(true)
+        setBig(true)
+        setSmall(true)
+        setBigContent(false)
+        setHidebutton(true)
+        setShowbutton(false)
+      }
+//////////////////////// count reviews
+        const [reviewsCount, setReviewsCount] = useState(1);
 
+        useEffect(() => {
+          const interval = setInterval(() => {
+            if (reviewsCount < 52117) {
+              setReviewsCount(reviewsCount + 700);
+            } else {
+              clearInterval(interval);
+            }
+          }, 0.00001); // Adjust the speed of counting as needed
 
+          return () => clearInterval(interval);
+        }, [reviewsCount]);
 
     return ( 
      <div className="carreview">
@@ -465,11 +510,11 @@ const Carreviews = () => {
         <div className="content-review2">
                     <div className="flex gap-4 ml-44 mt-12">
                        <div className="flex gap-2"> <p style={{color:"#2F27CE"}}>Rated</p> <p className="font-semibold">4.6/5</p></div>
-                       <div className="flex gap-2">  <p  className="">from</p> <p className="font-semibold"> 52,117 reviews</p></div>
+                       <div className="flex gap-2">  <p  className="">from</p> <p className="font-semibold"> {reviewsCount.toLocaleString()} reviews</p></div>
                     </div>
                     <div className="mt-10 ml-24">
                     <h1  style={{fontWeight:700,fontSize:25,color:'#2F27CE'}} className="">Reviews by car type </h1>
-                        <div className="flex flex-col md:flex-row justify-evenly items-center md:items-stretch mt-12">
+                        <div className="flex flex-col lg:flex-row justify-evenly items-center gap-8 lg:items-stretch mt-12">
                                 {small &&
                                  <motion.div
                                  variants={varianti}
@@ -477,30 +522,35 @@ const Carreviews = () => {
                                  whileInView="animate"
                                  whileHover={{ scale: 1.1 }}
                                  viewport={{ once: true }}
-                                 className="cardx1 flex flex-col items-center ">
+                                 className="cardx1 flex flex-col items-center">
                                  <img src={anash1} alt="" />
                               {hidebutton &&
                                <motion.button   initial={{ scale: 0,opacity:0 }}
                                animate={{ scale: 1 ,opacity:1}}
-                             id="first" onClick={()=>showSmall('first')}  className={`bbo ${isClicked === 'first' ? 'bbo2' : ''}`}> <p className="text-center font-semibold">Small Cars</p></motion.button>
+                             id="first" onClick={()=>showSmall('first')}  className="bbo" > <p className="text-center font-semibold">Small Cars</p></motion.button>
                               }
                               {showbutton && 
                               <motion.button   initial={{ scale: 0,opacity:0 }}
                               animate={{ scale: 1 ,opacity:1}}
-                            id="first" onClick={()=>hideSmall('first')}  className={`bbo ${isClicked === 'first' ? 'bbo2' : ''}`}> <p className="text-center font-semibold">Back</p></motion.button>
+                            id="first" onClick={()=>hideSmall('first')}  className="bbo"> <p className="text-center font-semibold">Back</p></motion.button>
                               }
                                 </motion.div>
                                 }
                                  {smallContent && 
-                                    <div className="flex flex-col md:flex-row gap-4">
+                                    <div className="flex flex-col md:flex-row gap-8">
+                                       <div 
+                                    className="allin flex items-center justify-center -ml-4">
+                                      <ArrowForwardIosIcon sx={{color:"#2F27CE"}}/>
+                                    </div>
                                       <motion.div 
                                        variants={varianti}
                                        initial="initial"
                                        whileInView="animate"
-                                      className="smallContent mt-4 md:mt-0">
+                                       viewport={{ once: true }}
+                                      className="smallContent mt-6 md:mt-8">
                                    <div className="flex flex-col justify-center">
                                    <img width="200px" src={a3} alt="" />
-                                    <div  className="flex flex-col justify-center items-center">
+                                    <div  className="flex gap-2 flex-col justify-center items-center">
                                     <p className="text-center font-semibold">Audi A3</p>
                                       <div className="flex">
                                         <p>Reviews</p>
@@ -527,10 +577,11 @@ const Carreviews = () => {
                                    variants={varianti}
                                    initial="initial"
                                    whileInView="animate"
-                                  className="smallContent mt-4 md:mt-0">
+                                   viewport={{ once: true }}
+                                  className="smallContent mt-6 lg:mt-8">
                                    <div className="flex flex-col justify-center">
                                    <img width="200px" src={series1} alt="" />
-                                    <div  className="flex flex-col justify-center items-center">
+                                    <div  className="flex gap-2 flex-col justify-center items-center">
                                     <p className="text-center font-semibold">BMW 1 Series</p>
                                       <div className="flex">
                                         <p>Reviews</p>
@@ -557,10 +608,11 @@ const Carreviews = () => {
                                    variants={varianti}
                                    initial="initial"
                                    whileInView="animate"
-                                  className="smallContent mt-4 md:mt-0">
+                                   viewport={{ once: true }}
+                                  className="smallContent mt-6 lg:mt-8">
                                    <div className="flex flex-col justify-center">
                                    <img width="200px" src={yaris} alt="" />
-                                    <div  className="flex flex-col justify-center items-center">
+                                    <div  className="flex gap-2 flex-col justify-center items-center">
                                     <p className="text-center font-semibold">Toyota Yaris</p>
                                       <div className="flex">
                                         <p>Reviews</p>
@@ -593,10 +645,120 @@ const Carreviews = () => {
                                 whileHover={{ scale: 1.1 }}
                                 viewport={{ once: true }}
                                 className="cardx2  flex flex-col items-center mt-4 md:mt-0">
-                                <img src={anash1} alt="" />
-                                  <button className="bbo"> <p className="text-center font-semibold">Small Cars</p></button>
+                                <img src={skoda} alt="" />
+                                {hidebutton &&
+                               <motion.button   initial={{ scale: 0,opacity:0 }}
+                               animate={{ scale: 1 ,opacity:1}}
+                             id="first" onClick={()=>showMedium('first')}  className="bbo" > <p className="text-center font-semibold">SUVs</p></motion.button>
+                              }
+                              {showbutton && 
+                              <motion.button   initial={{ scale: 0,opacity:0 }}
+                              animate={{ scale: 1 ,opacity:1}}
+                            id="first" onClick={()=>hideMedium('first')}  className="bbo"> <p className="text-center font-semibold">Back</p></motion.button>
+                              }
                                 </motion.div>
                                 }   
+                                 {mediumContent && 
+                                  <div className="flex flex-col md:flex-row gap-8">
+                                    <div 
+                                    className="allin flex items-center justify-center -ml-4">
+                                      <ArrowForwardIosIcon sx={{color:"#2F27CE"}}/>
+                                    </div>
+                                    <motion.div 
+                                     variants={varianti}
+                                     initial="initial"
+                                     whileInView="animate"
+                                     viewport={{ once: true }}
+                                    className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={q8} alt="" />
+                                  <div  className="flex gap-2 flex-col justify-center items-center">
+                                  <p className="text-center font-semibold">Audi Q8</p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">6.5/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                <motion.div
+                                 variants={varianti}
+                                 initial="initial"
+                                 whileInView="animate"
+                                 viewport={{ once: true }}
+                                className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={x1} alt="" />
+                                  <div  className="flex gap-2 flex-col justify-center items-center">
+                                  <p className="text-center font-semibold">BMW X1 </p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">8/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                <motion.div
+                                 variants={varianti}
+                                 initial="initial"
+                                 whileInView="animate"
+                                 viewport={{ once: true }}
+                                className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={glb} alt="" />
+                                  <div  className="flex gap-2 flex-col justify-center items-center">
+                                  <p className="text-center font-semibold">Mercedes GLB</p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div className="review flex items-center text-center ml-2">
+                                    <p className="ml-1">7/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                  </div>
+                                }
                                 {big && 
                                 <motion.div
                                 variants={varianti}
@@ -605,14 +767,124 @@ const Carreviews = () => {
                                 whileHover={{ scale: 1.1 }}
                                 viewport={{ once: true }}
                                 className="cardx3  flex flex-col items-center mt-4 md:mt-0">
-                                <img src={anash1} alt="" />
-                                  <button className="bbo"> <p className="text-center font-semibold">Small Cars</p></button>
+                                <img src={hondax} alt="" />
+                                {hidebutton &&
+                               <motion.button   initial={{ scale: 0,opacity:0 }}
+                               animate={{ scale: 1 ,opacity:1}}
+                             id="first" onClick={()=>showBig('first')}  className="bbo" > <p className="text-center font-semibold">Electric Cars</p></motion.button>
+                              }
+                              {showbutton && 
+                              <motion.button   initial={{ scale: 0,opacity:0 }}
+                              animate={{ scale: 1 ,opacity:1}}
+                            id="first" onClick={()=>hideBig('first')}  className="bbo"> <p className="text-center font-semibold">Back</p></motion.button>
+                              }
                                 </motion.div>
+                                }
+                                {bigContent && 
+                                  <div className="flex flex-col md:flex-row gap-8">
+                                    <div 
+                                    className="allin flex items-center justify-center -ml-4">
+                                      <ArrowForwardIosIcon sx={{color:"#2F27CE"}}/>
+                                    </div>
+                                    <motion.div 
+                                     variants={varianti}
+                                     initial="initial"
+                                     whileInView="animate"
+                                     viewport={{ once: true }}
+                                    className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={etron} alt="" />
+                                  <div  className="flex gap-2 flex-col justify-center items-center">
+                                  <p className="text-center font-semibold">Audi e-tron GT</p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">8.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">8/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                <motion.div
+                                 variants={varianti}
+                                 initial="initial"
+                                 whileInView="animate"
+                                 viewport={{ once: true }}
+                                className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={i5} alt="" />
+                                  <div  className="flex gap-2 flex-col justify-center items-center">
+                                  <p className="text-center font-semibold">BMW i5 </p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">9/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">8.5/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                <motion.div
+                                 variants={varianti}
+                                 initial="initial"
+                                 whileInView="animate"
+                                 viewport={{ once: true }}
+                                className="smallContent mt-6 lg:mt-8">
+                                 <div className="flex flex-col justify-center">
+                                 <img width="200px" src={taycano} alt="" />
+                                  <div  className="flex flex-col gap-2 justify-center items-center">
+                                  <p className="text-center font-semibold">Porsche Tycan</p>
+                                    <div className="flex">
+                                      <p>Reviews</p>
+                                    <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">8.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Economy</p>
+                                      <div style={{width:"max-content"}}  className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">7.5/10</p>
+                                  </div>
+                                    </div>
+                                    <div className="flex mt-1">
+                                      <p>Quality</p>
+                                      <div style={{width:"max-content"}} className="review flex items-center text-center ml-2">
+                                    <p className="ml-1 mr-1">9/10</p>
+                                  </div>
+                                    </div>
+                                  </div>
+                                 </div>
+                                </motion.div>
+                                  </div>
                                 }
                         </div>
                     </div>
                     <h1  style={{fontWeight:700,fontSize:25,color:'#2F27CE'}} className="mt-24 ml-24">Reviews by brand type </h1>
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-10 ">
+                    <div className="flex flex-col lg:flex-row justify-center items-center gap-4 mt-10 ">
                     <div class="card">
                     <div class="first-content">
                     <svg
